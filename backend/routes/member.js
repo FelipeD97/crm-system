@@ -8,4 +8,9 @@ router.get('/', async (req, res, next) => {
     res.json(getMember).status(200);
   })
 
+router.get("/membercards", async (req, res, next) => {
+  const joinCards = await memberModel.joinCards();
+  res.json(joinCards).status(200);
+})
+
 module.exports = router;
