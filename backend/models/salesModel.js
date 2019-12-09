@@ -17,6 +17,17 @@ class Sales {
         return err.message;
       }
     }
+    static async getInventory() {
+
+      try {
+          const response = await db.any(`SELECT * FROM Inventory;`);
+          return response;
+      } catch (error) {
+          return error.message;
+
+      }
+  }
+ 
 }
 
 module.exports = Sales;
