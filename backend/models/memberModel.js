@@ -26,8 +26,7 @@ class Member {
         try {
             const response = await db.any(`
             SELECT * FROM members
-            FULL JOIN cards ON member_id = members.id
-            WHERE members.name = 'felipe';
+            FULL JOIN cards ON member_id = members.id;
             `);
             return response;
         } catch (err) {
