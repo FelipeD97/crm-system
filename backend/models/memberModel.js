@@ -1,7 +1,7 @@
 const db = require('./conn');
 
 class Member {
-    constructor(id, name, email, phone, age, status, waiver, contract, date_joined) 
+    constructor(id, name, email, phone, age, status, waiver, contract, date_joined) {
       this.id = id;
       this.name = name;
       this.email = email;
