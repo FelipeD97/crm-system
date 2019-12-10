@@ -17,6 +17,8 @@ const corsOptions = {
 const indexRouter = require('./routes/index'),
  employeeRouter = require('./routes/employee'),
  memberRouter = require('./routes/member'),
+ inventoryRouter = require('./routes/inventory'),
+
 
  salesRouter = require('./routes/sales');
 
@@ -33,6 +35,8 @@ app.use(cors(corsOptions));
 app.use('/', indexRouter);
 app.use('/employee', employeeRouter);
 app.use('/member', memberRouter);
+app.use('/inventory', inventoryRouter);
+
 
 app.use('/sales', salesRouter);
 
