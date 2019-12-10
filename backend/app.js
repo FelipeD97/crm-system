@@ -16,8 +16,9 @@ const corsOptions = {
 
 const indexRouter = require('./routes/index'),
  employeeRouter = require('./routes/employee'),
- memberRouter = require('./routes/member')
- salesRouter = require('./routes/sales');
+ memberRouter = require('./routes/member'),
+ salesRouter = require('./routes/sales'),
+ cardRouter = require('./routes/cards');
 
 const app = express();
 
@@ -33,5 +34,6 @@ app.use('/', indexRouter);
 app.use('/employee', employeeRouter);
 app.use('/member', memberRouter);
 app.use('/sales', salesRouter);
+app.use('/cards', cardRouter);
 
 module.exports = app;

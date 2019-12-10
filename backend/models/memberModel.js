@@ -1,7 +1,7 @@
 const db = require('./conn');
 
 class Member {
-    constructor(id, name, email, phone, age, status, waiver, contract, date_joined) 
+    constructor(id, name, email, phone, age, status, waiver, contract, date_joined) {
       this.id = id;
       this.name = name;
       this.email = email;
@@ -33,21 +33,6 @@ class Member {
           return err.message;
         }
       }
-
-
-
-    static async joinCards() {
-        try {
-            const response = await db.any(`
-            SELECT * FROM members
-            FULL JOIN cards ON member_id = members.id;
-            `);
-            return response;
-        } catch (err) {
-            return err.message;
-        }
-    }
-
 }
 
 module.exports = Member;
