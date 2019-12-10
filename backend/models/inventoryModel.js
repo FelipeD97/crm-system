@@ -18,6 +18,16 @@ class Inventory {
         return err.message;
       }
     }
+    static async addEntry(item, cost, photo, stock) {
+      const query = `INSERT INTO inventory ( item, cost, photo, stock) VALUES ('${item}', ${cost}, '${photo}', ${stock})`;
+  
+      try {
+        const response = await db.result(query);
+        return response;
+      } catch (err) {
+        return err.message;
+      }
+    }
 }
 
 module.exports = Inventory;
