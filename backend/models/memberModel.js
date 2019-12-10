@@ -10,7 +10,8 @@ class Member {
       this.status = status;
       this.waiver = waiver;
       this.contract = contract;
-      this.date_joined = date_joined};
+      this.date_joined = date_joined;
+      this.card_id= card_id};
     
   
     static async getMember() {
@@ -23,8 +24,8 @@ class Member {
     }
 
 
-    static async addMember(name, email, phone, age, status, waiver, contract, date_joined) {
-        const query = `INSERT INTO members (name, email, phone, age, status, waiver, contract, date_joined) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`
+    static async addMember(name, email, phone, age, status, waiver, contract, date_joined, card_id) {
+        const query = `INSERT INTO members (name, email, age, phone, status, waiver, contract, date_joined) VALUES ('${name}', '${email}', ${age},'${status}', ${phone},'${status}','${waiver}', '${date_joined}')`
     
         try {
           const response = await db.one(query, [name, email, phone, age, status, waiver, contract, date_joined]);
