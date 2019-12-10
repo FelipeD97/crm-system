@@ -1,7 +1,7 @@
 const db = require('./conn');
 
 class Member {
-    constructor(id, name, email, phone, age, status, waiver, contract, date_joined) 
+    constructor(id, name, email, phone, age, status, waiver, contract, date_joined) {
       this.id = id;
       this.name = name;
       this.email = email;
@@ -10,8 +10,8 @@ class Member {
       this.status = status;
       this.waiver = waiver;
       this.contract = contract;
-      this.date_joined = date_joined;
-    }
+      this.date_joined = date_joined};
+    
   
     static async getMember() {
       try {
