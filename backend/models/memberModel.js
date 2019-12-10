@@ -10,8 +10,8 @@ class Member {
       this.status = status;
       this.waiver = waiver;
       this.contract = contract;
-      this.date_joined = date_joined;
-    }
+      this.date_joined = date_joined};
+    
   
     static async getMember() {
       try {
