@@ -6,7 +6,7 @@ class Card {
       this.id = id;
       this.full_name = full_name;
       this.card_number = card_number;
-      this.cdv = cdv;
+      this.cvv = cvv;
       this.member_id = member_id;
     }
   
@@ -22,12 +22,12 @@ class Card {
         }
     }
 
-    static async addCard(full_name, card_number, exp_date, cdv, member_id) {
+    static async addCard(full_name, card_number, exp_date, cvv, member_id) {
             const query = `INSERT INTO cards 
-                (full_name, card_number, exp_date, cdv, member_id) 
+                (full_name, card_number, exp_date, cvv, member_id) 
                 VALUES ($1, $2, $3, $4, $5)`
             try {
-                const response = await db.one(query, [full_name, card_number, exp_date, cdv, member_id])
+                const response = await db.one(query, [full_name, card_number, exp_date, cvv, member_id])
                 return response;
             }
          catch (err) {
