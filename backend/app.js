@@ -2,7 +2,10 @@ const express = require('express'),
     path = require('path'),
     cookieParser = require('cookie-parser'),
     logger = require('morgan'),
-    cors = require("cors");
+    cors = require("cors"),
+    session = require("express-session"),
+    fileStore = require("session-file-store")(session);
+    
 
 const corsOptions = {
     origin: "*",
@@ -21,6 +24,9 @@ const indexRouter = require('./routes/index'),
  salesRouter = require('./routes/sales'),
  cardRouter = require('./routes/cards');
 
+
+ require('dotenv').config();
+
 const app = express();
 
 
@@ -30,6 +36,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors(corsOptions));
+app.use(
+    session({
+        store: fileStore(session),
+        secret: process.env.SESSION_SECRET,
+        resave: false,
+        saveUninitialized: true,
+        is_logged_in: false,
+    })
+);
 
 app.use('/', indexRouter);
 app.use('/employee', employeeRouter);
