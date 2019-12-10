@@ -1,9 +1,9 @@
 const db = require('./conn');
 
 class Inventory {
-    constructor(id, item_id,cost, photo, stock) {
+    constructor(id, item,cost, photo, stock) {
       this.id = id;
-      this.item_id = item_id;
+      this.item = item;
       this.cost = cost;
       this.photo = photo;
       this.stock = stock;
