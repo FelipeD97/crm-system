@@ -17,6 +17,18 @@ class Sales {
         return err.message;
       }
     }
+
+    static async addSale() {
+      try {
+        const response = await db.any(`
+        SELECT inventory.id, members.id, employees.id
+        FULL JOIN sales ON item_id = inventory.id;
+        `);
+        return response
+      } catch (err) {
+        return err.message;
+      }
+    }
 }
 
 module.exports = Sales;
