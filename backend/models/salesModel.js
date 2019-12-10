@@ -10,9 +10,9 @@ class Item {
       
     }
   
-    static async getInventory() {
+    static async getSales() {
       try {
-        const response = await db.any(`select * from inventory;`);
+        const response = await db.any(`select * from sales;`);
         return response;
       } catch (err) {
         return err.message;
@@ -22,8 +22,9 @@ class Item {
     static async addSale() {
       try {
         const response = await db.any(`
-        SELECT inventory.id, members.id, employees.id
-        FULL JOIN sales ON item_id = inventory.id;
+        INSERT INTO sales(item_id, cost, member_id, employee_id)
+        VALUES ($1, $2, $3, $4)
+
         `);
         return response
       } catch (err) {
