@@ -18,9 +18,8 @@ const indexRouter = require('./routes/index'),
  employeeRouter = require('./routes/employee'),
  memberRouter = require('./routes/member'),
  inventoryRouter = require('./routes/inventory'),
-
-
- salesRouter = require('./routes/sales');
+ salesRouter = require('./routes/sales'),
+ cardRouter = require('./routes/cards');
 
 const app = express();
 
@@ -39,5 +38,6 @@ app.use('/inventory', inventoryRouter);
 
 
 app.use('/sales', salesRouter);
+app.use('/cards', cardRouter);
 
 module.exports = app;

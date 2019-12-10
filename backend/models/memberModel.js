@@ -33,21 +33,6 @@ class Member {
           return err.message;
         }
       }
-
-
-
-    static async joinCards() {
-        try {
-            const response = await db.any(`
-            SELECT * FROM members
-            FULL JOIN cards ON member_id = members.id;
-            `);
-            return response;
-        } catch (err) {
-            return err.message;
-        }
-    }
-
 }
 
 module.exports = Member;
