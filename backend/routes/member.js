@@ -9,11 +9,11 @@ router.get('/', async (req, res, next) => {
   })
 
 
-  // router.post("/", async (req, res) => {
-  //   const newmember= { name, email, age, phone, status, waiver, contract, date_joined } = req.body;
-  //   const response = await memberModel.addMember(name, email, age, phone, status, waiver, contract, date_joined);
-  //     res.sendStatus(200);
-  // });
+  router.post("/", async (req, res) => {
+    const newmember= { name, email, age, phone, status, waiver, contract, date_joined } = req.body;
+    const response = await memberModel.addMember(name, email, age, phone, status, waiver, contract, date_joined);
+      res.sendStatus(200);
+  });
 
 
 router.get("/membercards", async (req, res, next) => {
