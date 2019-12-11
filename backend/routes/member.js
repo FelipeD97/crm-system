@@ -10,8 +10,8 @@ router.get('/', async (req, res, next) => {
 
 
 
-  router.post("/", async (req, res) => {
-    const { name, email, phone, age, status, waiver, contract, date_joined} = req.body;
+  router.post("/addmember", async (req, res) => {
+    const { name, email, phone, age, status, waiver, contract, date_joined } = req.body;
     console.log(req.body)
     const response = await memberModel.addMember(name, email, phone, age, status, waiver, contract, date_joined );
     console.log(response)

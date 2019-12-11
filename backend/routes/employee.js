@@ -24,10 +24,11 @@ router.get("/login", async (req, res, next) => {
     res.status(200).redirect("/");
   }
 });
-router.post("/", async (req, res) => {
-  const { name,email,phone, password} = req.body;
+
+router.post("/addemployee", async (req, res) => {
+  const { name, email, phone, password} = req.body;
   console.log(req.body)
-  const response = await employeeModel.addEmployee(name,email,phone, password );
+  const response = await employeeModel.addEmployee(name, email, phone, password );
   console.log(response)
   if (response.command === "INSERT"  && response.rowCount >= 1) {
     res.sendStatus(200);
@@ -37,4 +38,5 @@ router.post("/", async (req, res) => {
 
 
 });
+
 module.exports = router;
