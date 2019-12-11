@@ -19,10 +19,10 @@ class Employee {
       }
     }
     static async addEmployee(name, email, phone, password) {
-      const query = `INSERT INTO employees ( name, email, phone, password) VALUES ('${name}', '${email}', ${phone}, '${password}')`;
+      const query = `INSERT INTO employees (name, email, phone, password) VALUES ($1, $2, $3, $4)`;
   
       try {
-        const response = await db.result(query);
+        const response = await db.result(query, [name, email, phone, password]);
         return response;
       } catch (err) {
         return err.message;

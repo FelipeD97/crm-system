@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ActiveMembers from './ActiveMembers';
 import InactiveMembers from './InactiveMembers';
+import AddMember from './AddMember';
 
 
 const Members = () => {
@@ -22,10 +23,14 @@ const Members = () => {
             <li>
                 <button onClick={handleClick} value="inactive">Inactive</button>
             </li>
+            <li>
+            <button onClick={handleClick} value="addmember">Add Member</button>
+            </li>
         </ul>
         </div>
         {members === 'active' ? <ActiveMembers /> : null}
         {members === 'inactive' ? <InactiveMembers /> : null}
+        {members === 'addmember' ? <AddMember /> : null}
     </>
     )
 }
