@@ -12,4 +12,9 @@ router.get('/inventory', async(req,res,next)=>{
   res.json(getsInventory).status(200);
 })
 
+router.get("/addSale", async (req, res, next) => {
+  const addSale = await salesModel.addSale();
+  res.json(addSale).status(200);
+})
+
 module.exports = router;
