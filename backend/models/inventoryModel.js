@@ -18,6 +18,25 @@ class Inventory {
         return err.message;
       }
     }
+    static async addInventory(item, cost, photo, stock) {
+      const query = `INSERT INTO inventory ( item, cost, photo, stock) VALUES ('${item}', ${cost}, '${photo}', ${stock})`;
+  
+      try {
+        const response = await db.result(query);
+        return response;
+      } catch (err) {
+        return err.message;
+      }
+    }
+    static async updateInventory(item, cost, photo, stock) {
+      const query = `UPDATE inventory SET '${item}' = ${stock} WHERE id = ${id}`;
+      try {
+        const response = await db.result(query);
+        return response;
+      } catch (err) {
+        return err.message;
+      }
+    }
 }
 
 module.exports = Inventory;
