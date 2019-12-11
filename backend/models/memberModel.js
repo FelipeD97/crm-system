@@ -28,7 +28,7 @@ class Member {
         const query = `INSERT INTO members (name, email, age, phone, status, waiver, contract, date_joined) VALUES ('${name}', '${email}', ${age},'${status}', ${phone},'${status}','${waiver}', '${date_joined}')`
     
         try {
-          const response = await db.one(query, [name, email, phone, age, status, waiver, contract, date_joined]);
+          const response = await db.result(query, [name, email, phone, age, status, waiver, contract, date_joined]);
           return response;
         } catch (err) {
           return err.message;

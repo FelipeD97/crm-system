@@ -13,11 +13,17 @@ router.get('/', async (req, res, next) => {
   router.post("/", async (req, res) => {
     const { name, email, phone, age, status, waiver, contract, date_joined} = req.body;
     console.log(req.body)
-    const response = await memberModel.addMember(name, email, phone,age, status, waiver, contract, date_joined );
-    if (response.command === "INSERT" && response.rowCount >= 1) {
+    const response = await memberModel.addMember(name, email, phone, age, status, waiver, contract, date_joined );
+    console.log(response)
+    if (response.command === "INSERT"  && response.rowCount >= 1) {
       res.sendStatus(200);
     } else {
       res.send(`Please add ${name}`).status(409);
     }
+
+
+
+
   });
+
 module.exports = router;
