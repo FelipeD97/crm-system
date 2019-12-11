@@ -1,6 +1,7 @@
 const pgp = require('pg-promise') ({
     query: function(e) {
         console.log('query', e.query)
+
     }
 });
 
