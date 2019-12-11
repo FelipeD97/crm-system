@@ -9,9 +9,9 @@ router.get("/", async (req, res, next) => {
   })
 
   router.post("/addCard", async (req, res) => {
-    const { full_name, exp_date, cdv, member_id } = req.body;
+    const { full_name, exp_date, member_id } = req.body;
     const cardHash = bcrypt.hashSync(req.body.card_number, 8);
-    const cvvHash = bcrypt.hashSync(req.body.cdv, 8);
+    const cvvHash = bcrypt.hashSync(req.body.cvv, 8);
 
     const response = await cardModel.addCard(full_name, cardHash, exp_date, cvvHash, member_id);
       res.sendStatus(200);
