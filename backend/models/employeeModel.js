@@ -18,6 +18,16 @@ class Employee {
         return err.message;
       }
     }
+    static async addEmployee(name, email, phone, password) {
+      const query = `INSERT INTO employees ( name, email, phone, password) VALUES ('${name}', '${email}', ${phone}, '${password}')`;
+  
+      try {
+        const response = await db.result(query);
+        return response;
+      } catch (err) {
+        return err.message;
+      }
+    }
 
     checkPassword(hashedPassword) {
       return bcrypt.compareSync(this.password, hashedPassword);
