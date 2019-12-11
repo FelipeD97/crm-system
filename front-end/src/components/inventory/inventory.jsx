@@ -43,11 +43,12 @@ async componentDidMount() {
               </thead>
               
               <tbody>
-                {inventory.map(inventories => (
-                <tr key={inventories.id} value={inventories.id} name={inventories.id}>
-                <td>{inventories.cost}</td> 
-                  <td>{inventories.item}</td> 
-                  <td>{inventories.stock}</td>
+                {inventory.map(i => (
+                <tr key={i.id} value={i.id} name={i.id}>
+                <td>{i.item}</td> 
+                  <td>{i.cost}</td> 
+                  <td>{i.photo}</td>
+                  <td>{i.stock}</td>
                   </tr>
                 ))}
                   </tbody>
