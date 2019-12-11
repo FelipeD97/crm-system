@@ -3,9 +3,10 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Login from './components/home/login';
 import HomeDash from './components/home/DashBoardHome';
-import Nav from './components/Nav/nav'
+import Nav from './components/nav/Nav';
 import Members from './components/members/members';
-import Inventory from './components/inventory/inventory'
+import Inventory from './components/inventory/inventory';
+import MakeSale from "./components/inventory/store";
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
       <Route path='/login' component={Login} />
       <Route path='/members' component={Members} />
       <Route path='/inventory' component={Inventory} />
-
+      <Route path="/makesale" component={MakeSale} />
     </Router>
     </div>
   );
