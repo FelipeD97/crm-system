@@ -48,8 +48,8 @@ class AddMember extends Component {
 
       handleDateChange = date => {
         this.setState({
-          dateJoined: date,
-        //   dob: date
+          date_joined: date,
+          age: date
         });
       };
     
@@ -88,7 +88,7 @@ class AddMember extends Component {
                 <DatePicker
                     selected={date_joined}
                     onChange={this.handleDateChange}
-                    sshowYearDropdown
+                    showYearDropdown
                     dateFormatCalendar="MMMM"
                     yearDropdownItemNumber={15}
                     scrollableYearDropdown
