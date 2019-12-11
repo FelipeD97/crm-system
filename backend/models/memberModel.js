@@ -24,11 +24,11 @@ class Member {
     }
 
 
-    static async addMember(name, email, phone, age, status, waiver, contract, date_joined, card_id) {
-        const query = `INSERT INTO members (name, email, age, phone, status, waiver, contract, date_joined, card_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`
+    static async addMember(name, email, phone, age, status, waiver, contract, date_joined) {
+        const query = `INSERT INTO members (name, email, phone, age, status, waiver, contract, date_joined) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`
     
         try {
-          const response = await db.result(query, [name, email, phone, age, status, waiver, contract, date_joined, card_id]);
+          const response = await db.result(query, [name, email, phone, age, status, waiver, contract, date_joined]);
           return response;
         } catch (err) {
           return err.message;
