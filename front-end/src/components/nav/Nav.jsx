@@ -21,7 +21,7 @@ function Nav() {
           <Link to='/members'><img src={members}></img></Link>
         </li>
         <li>
-          <Link to='/makesale'><img src={Store}></img></Link>
+          <Link to='/inventory'><img src={Store}></img></Link>
         </li>
       </ul>
     </nav>

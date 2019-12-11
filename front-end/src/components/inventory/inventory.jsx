@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import loadData from '../../utils/loadData';
+import { Link } from "react-router-dom";
 
 class Inventory extends Component {
     state = {
@@ -54,6 +55,9 @@ async componentDidMount() {
                   </tbody>
             </table>
             </form>
+            <Link to="/makesale">
+                <button>Make a Sale</button>
+            </Link>
             </div>
             </>
         );
