@@ -7,7 +7,6 @@ class MakeSale extends Component {
         members: [],
         employees:[],
         item_id: "",
-        cost: "",
         member_id: "",
         employee_id: ""
     }
@@ -61,7 +60,7 @@ class MakeSale extends Component {
     };
 
     render() {
-        const { inventory, members, employees, item_id, cost, member_id, employee_id } = this.state;
+        const { inventory, members, employees } = this.state;
 
         return(
             <>
@@ -70,7 +69,7 @@ class MakeSale extends Component {
                         <ul>
                         {inventory.map(item =>
                             <label key={item.id} value={item.id} name={item.id}>
-                                {item.item} {item.cost}
+                                {item.item}
                                 <input type="radio" name="item_id" value={item.id} onChange={this.handleChange} />
                             </label>)}
                         </ul>    
@@ -79,7 +78,7 @@ class MakeSale extends Component {
                         <ul>
                         {members.map(member =>
                             <label key={member.id} value={member.id} name={member.id}>
-                                {member.name}
+                                {member.member_name}
                                 <input type="radio" name="member_id" value={member.id} onChange={this.handleChange} />
                             </label>)}
                             </ul>
