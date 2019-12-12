@@ -34,11 +34,11 @@ class Member {
         }
       }
     
-    static async updateMember(id, name, email, phone, age, status, waiver, contract, date_joined){
-      const query = `UPDATE members set (name, email, phone, age, status, waiver, contract, date_joined) = ($1,$2,$3,$4,$5,$6,$7,$8) where id = ${id})`
+    static async updateMember(id, member_name, member_email, phone, age, status, waiver, contract, date_joined){
+      const query = `UPDATE members set (member_name, member_email, phone, age, status, waiver, contract, date_joined) = ($1,$2,$3,$4,$5,$6,$7,$8) where id = ${id}`
     
         try {
-          const response = await db.result(query, [name, email, phone, age, status, waiver, contract, date_joined]);
+          const response = await db.result(query, [member_name, member_email, phone, age, status, waiver, contract, date_joined]);
           return response;
         } catch (err) {
           return err.message;
