@@ -2,10 +2,11 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import HomeDash from './components/home/DashBoardHome';
-import Nav from './components/nav/Nav';
+import Nav from './components/Nav/Nav';
 import Members from './components/members/members';
 import Inventory from './components/inventory/inventory';
 import MakeSale from "./components/inventory/store";
+import MemberProfile from './components/members/MemberProfile';
 import AuthProvider from './components/login/auth';
 import PrivateRoute from './components/login/privateroute'
 import SignUp from './components/login/sign-up'
@@ -25,8 +26,8 @@ function App() {
       <Route path='/members' component={Members} />
       <Route path='/inventory' component={Inventory} />
       <Route path="/makesale" component={MakeSale} />
-
-      
+      <Route path="/members/:id" component={MemberProfile} />
+    
       <AuthProvider>
         <Router>
        <div>
@@ -39,6 +40,7 @@ function App() {
 
       </Router>
       </AuthProvider>
+
     </Router>
     </div>
   );
