@@ -12,7 +12,9 @@ import PrivateRoute from './components/login/privateroute';
 import SignUp from './components/login/sign-up';
 import Login from './components/login/login.jsx';
 import Signout from './components/login/signout';
+import EditMember from './components/members/editMember';
 import TransactionHistory from './components/inventory/transactionHistory';
+
 
 
 function App() {
@@ -28,6 +30,9 @@ function App() {
       <Route path='/inventory' component={Inventory} />
       <Route path="/makesale" component={MakeSale} />
       <Route path='/memberprofile/:memberid' component={MemberProfile} />
+
+      <Route path='/editMember/:memberid' component={EditMember} />
+
       <Route path='/transaction' component={TransactionHistory} />
     
       <AuthProvider>

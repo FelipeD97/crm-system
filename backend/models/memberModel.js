@@ -33,7 +33,13 @@ class Member {
           return err.message;
         }
       }
-      
-}
+        try {
+          const response = await db.result(query, [name, email, phone, age, status, waiver, contract, date_joined]);
+          return response;
+        } catch (err) {
+          return err.message;
+        }
+      }
+    }
 
 module.exports = Member;
