@@ -36,8 +36,6 @@ function App() {
       
       <Route exact path='/login' component={Login}/>
       </div>
-
-
       </Router>
       </AuthProvider>
 
