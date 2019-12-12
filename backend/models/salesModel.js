@@ -1,12 +1,12 @@
 const db = require('./conn');
 
-class Item {
-    constructor(id, item_id,cost, photo, stock) {
+class Sales{
+    constructor(id, item_id, cost, member_id, employee_id) {
       this.id = id;
       this.item_id = item_id;
       this.cost = cost;
-      this.photo = photo;
-      this.stock = stock;
+      this.member_id = member_id;
+      this.employee_id = employee_id;
       
     }
   
@@ -26,7 +26,7 @@ class Item {
         `
 
       try {
-        const response = await db.result(query,[item_id, cost, member_id, employee_id]);
+        const response = await db.result(query, [item_id, cost, member_id, employee_id]);
 
         return response
       } catch (err) {
@@ -35,4 +35,4 @@ class Item {
     }
 }
 
-module.exports = Item;
+module.exports = Sales;
