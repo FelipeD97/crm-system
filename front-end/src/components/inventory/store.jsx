@@ -67,31 +67,31 @@ class MakeSale extends Component {
             <>
                 <form onSubmit={this.handleSubmit} method="POST">
                     <label>
-                        <button>Items</button>
                         <ul>
-                            {inventory.map(item =>
-                                <li key={item.id} value={item.id} name={item.id}>
-                                    {item.item} {item.cost}
-                                </li>)}
-                        </ul>
+                        {inventory.map(item =>
+                            <label key={item.id} value={item.id} name={item.id}>
+                                {item.item} {item.cost}
+                                <input type="radio" name="item_id" value={item.id} onChange={this.handleChange} />
+                            </label>)}
+                        </ul>    
                     </label>
                     <label>
-                        <button>Members</button>
                         <ul>
-                            {members.map(member =>
-                                <li key={member.id} value={member.id} name={member.id}>
-                                    {member.name}
-                                </li>)}
-                        </ul>
+                        {members.map(member =>
+                            <label key={member.id} value={member.id} name={member.id}>
+                                {member.name}
+                                <input type="radio" name="member_id" value={member.id} onChange={this.handleChange} />
+                            </label>)}
+                            </ul>
                     </label>
                     <label>
-                        <button>Employees</button>
                         <ul>
-                            {employees.map(employee =>
-                                <li key={employee.id} value={employee.id} name={employee.id}>
-                                    {employee.name}
-                                </li>)}
-                        </ul>
+                        {employees.map(employee =>
+                            <label key={employee.id} value={employee.id} name={employee.id}>
+                                {employee.name}
+                                <input type="radio" name="employee_id" value={employee.id} onChange={this.handleChange} />
+                            </label>)}
+                            </ul>
                     </label>
                     <button type="submit">make sale</button>
                 </form>
