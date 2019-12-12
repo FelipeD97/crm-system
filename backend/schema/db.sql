@@ -21,10 +21,10 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: Inventory; Type: TABLE; Schema: public; Owner: Flip
+-- Name: inventory; Type: TABLE; Schema: public; Owner: Flip
 --
 
-CREATE TABLE public."Inventory" (
+CREATE TABLE public.inventory (
     id integer NOT NULL,
     item character varying,
     cost character varying,
@@ -33,7 +33,7 @@ CREATE TABLE public."Inventory" (
 );
 
 
-ALTER TABLE public."Inventory" OWNER TO "Flip";
+ALTER TABLE public.inventory OWNER TO "Flip";
 
 --
 -- Name: Inventory_id_seq; Type: SEQUENCE; Schema: public; Owner: Flip
@@ -54,7 +54,7 @@ ALTER TABLE public."Inventory_id_seq" OWNER TO "Flip";
 -- Name: Inventory_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Flip
 --
 
-ALTER SEQUENCE public."Inventory_id_seq" OWNED BY public."Inventory".id;
+ALTER SEQUENCE public."Inventory_id_seq" OWNED BY public.inventory.id;
 
 
 --
@@ -63,10 +63,11 @@ ALTER SEQUENCE public."Inventory_id_seq" OWNED BY public."Inventory".id;
 
 CREATE TABLE public.cards (
     id integer NOT NULL,
-    name character varying,
+    full_name character varying,
     card_number character varying,
     exp_date character varying,
-    cdv character varying
+    cvv character varying,
+    member_id integer
 );
 
 
@@ -102,7 +103,8 @@ CREATE TABLE public.employees (
     id integer NOT NULL,
     name character varying,
     email character varying,
-    phone character varying
+    phone character varying,
+    password character varying
 );
 
 
@@ -138,7 +140,7 @@ CREATE TABLE public.members (
     id integer NOT NULL,
     name character varying,
     email character varying,
-    age integer,
+    age character varying,
     phone character varying,
     status character varying,
     waiver character varying,
@@ -180,7 +182,8 @@ CREATE TABLE public.sales (
     id integer NOT NULL,
     item_id integer,
     cost character varying,
-    member_id integer
+    member_id integer,
+    employee_id integer
 );
 
 
@@ -245,13 +248,6 @@ ALTER SEQUENCE public.tasks_id_seq OWNED BY public.tasks.id;
 
 
 --
--- Name: Inventory id; Type: DEFAULT; Schema: public; Owner: Flip
---
-
-ALTER TABLE ONLY public."Inventory" ALTER COLUMN id SET DEFAULT nextval('public."Inventory_id_seq"'::regclass);
-
-
---
 -- Name: cards id; Type: DEFAULT; Schema: public; Owner: Flip
 --
 
@@ -263,6 +259,13 @@ ALTER TABLE ONLY public.cards ALTER COLUMN id SET DEFAULT nextval('public.cards_
 --
 
 ALTER TABLE ONLY public.employees ALTER COLUMN id SET DEFAULT nextval('public.employees_id_seq'::regclass);
+
+
+--
+-- Name: inventory id; Type: DEFAULT; Schema: public; Owner: Flip
+--
+
+ALTER TABLE ONLY public.inventory ALTER COLUMN id SET DEFAULT nextval('public."Inventory_id_seq"'::regclass);
 
 
 --
@@ -287,18 +290,10 @@ ALTER TABLE ONLY public.tasks ALTER COLUMN id SET DEFAULT nextval('public.tasks_
 
 
 --
--- Data for Name: Inventory; Type: TABLE DATA; Schema: public; Owner: Flip
---
-
-COPY public."Inventory" (id, item, cost, photo, stock) FROM stdin;
-\.
-
-
---
 -- Data for Name: cards; Type: TABLE DATA; Schema: public; Owner: Flip
 --
 
-COPY public.cards (id, name, card_number, exp_date, cdv) FROM stdin;
+COPY public.cards (id, full_name, card_number, exp_date, cvv, member_id) FROM stdin;
 \.
 
 
@@ -306,7 +301,20 @@ COPY public.cards (id, name, card_number, exp_date, cdv) FROM stdin;
 -- Data for Name: employees; Type: TABLE DATA; Schema: public; Owner: Flip
 --
 
-COPY public.employees (id, name, email, phone) FROM stdin;
+COPY public.employees (id, name, email, phone, password) FROM stdin;
+1	Felipe	felipe@gmail.com	\N	pass
+2	Hey	hey@gmail.com	\N	word
+3	ok	ok@gmail.com	\N	past
+\.
+
+
+--
+-- Data for Name: inventory; Type: TABLE DATA; Schema: public; Owner: Flip
+--
+
+COPY public.inventory (id, item, cost, photo, stock) FROM stdin;
+1	T-shirt	$15	\N	100
+2	Water Bottle	$12	\N	50
 \.
 
 
@@ -315,6 +323,7 @@ COPY public.employees (id, name, email, phone) FROM stdin;
 --
 
 COPY public.members (id, name, email, age, phone, status, waiver, contract, date_joined, card_id) FROM stdin;
+6	Felipe Dunbar	felipe@yahoo.com	2019-12-11T19:09:42.978Z	2144058076	active	\N	\N	2019-12-11T19:09:42.978Z	\N
 \.
 
 
@@ -322,7 +331,8 @@ COPY public.members (id, name, email, age, phone, status, waiver, contract, date
 -- Data for Name: sales; Type: TABLE DATA; Schema: public; Owner: Flip
 --
 
-COPY public.sales (id, item_id, cost, member_id) FROM stdin;
+COPY public.sales (id, item_id, cost, member_id, employee_id) FROM stdin;
+1	1	\N	6	2
 \.
 
 
@@ -338,7 +348,7 @@ COPY public.tasks (id, task_info, employee_id, member_id) FROM stdin;
 -- Name: Inventory_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Flip
 --
 
-SELECT pg_catalog.setval('public."Inventory_id_seq"', 1, false);
+SELECT pg_catalog.setval('public."Inventory_id_seq"', 2, true);
 
 
 --
@@ -352,21 +362,21 @@ SELECT pg_catalog.setval('public.cards_id_seq', 1, false);
 -- Name: employees_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Flip
 --
 
-SELECT pg_catalog.setval('public.employees_id_seq', 1, false);
+SELECT pg_catalog.setval('public.employees_id_seq', 3, true);
 
 
 --
 -- Name: members_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Flip
 --
 
-SELECT pg_catalog.setval('public.members_id_seq', 1, false);
+SELECT pg_catalog.setval('public.members_id_seq', 6, true);
 
 
 --
 -- Name: sales_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Flip
 --
 
-SELECT pg_catalog.setval('public.sales_id_seq', 1, false);
+SELECT pg_catalog.setval('public.sales_id_seq', 1, true);
 
 
 --
@@ -377,10 +387,10 @@ SELECT pg_catalog.setval('public.tasks_id_seq', 1, false);
 
 
 --
--- Name: Inventory Inventory_pkey; Type: CONSTRAINT; Schema: public; Owner: Flip
+-- Name: inventory Inventory_pkey; Type: CONSTRAINT; Schema: public; Owner: Flip
 --
 
-ALTER TABLE ONLY public."Inventory"
+ALTER TABLE ONLY public.inventory
     ADD CONSTRAINT "Inventory_pkey" PRIMARY KEY (id);
 
 
@@ -425,6 +435,14 @@ ALTER TABLE ONLY public.tasks
 
 
 --
+-- Name: cards cards_member_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Flip
+--
+
+ALTER TABLE ONLY public.cards
+    ADD CONSTRAINT cards_member_id_fkey FOREIGN KEY (member_id) REFERENCES public.members(id);
+
+
+--
 -- Name: members members_card_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Flip
 --
 
@@ -433,11 +451,19 @@ ALTER TABLE ONLY public.members
 
 
 --
+-- Name: sales sales_employee_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Flip
+--
+
+ALTER TABLE ONLY public.sales
+    ADD CONSTRAINT sales_employee_id_fkey FOREIGN KEY (employee_id) REFERENCES public.employees(id);
+
+
+--
 -- Name: sales sales_item_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Flip
 --
 
 ALTER TABLE ONLY public.sales
-    ADD CONSTRAINT sales_item_id_fkey FOREIGN KEY (item_id) REFERENCES public."Inventory"(id);
+    ADD CONSTRAINT sales_item_id_fkey FOREIGN KEY (item_id) REFERENCES public.inventory(id);
 
 
 --
