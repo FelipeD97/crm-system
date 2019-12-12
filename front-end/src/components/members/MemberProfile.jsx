@@ -20,19 +20,22 @@ class MemberProfile extends Component {
 
     render() { 
         const { members } = this.state;
-        console.log(this.props.match.params.memberid)
+        const handle = parseInt(this.props.match.params.memberid);
+
         return ( 
+            
         <div>
             <h1>Member Profile</h1>
-    {members.map(m => m.id == this.props.match.params.memberid  ?
-                <ul key={m.id} value={m.id} name={m.id}>
-                  <li><b>Name:</b> {m.name}</li>
-                  <li><b>Email:</b> {m.email}</li>
-                  <li><b>Phone:</b> {m.phone}</li>
-                  <li><b>Status</b> {m.status}</li>
-                  </ul>
-                  : null)}
-        </div> );
+                {members.map(m => m.id === handle  ?
+                    <ul key={m.id} value={m.id} name={m.id}>
+                        <li><b>Name:</b> {m.name}</li>
+                        <li><b>Email:</b> {m.email}</li>
+                        <li><b>Phone:</b> {m.phone}</li>
+                        <li><b>Status</b> {m.status}</li>
+                    </ul>
+                : null)}
+        </div> 
+        );
     }
 }
  
