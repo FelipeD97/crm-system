@@ -28,8 +28,8 @@ class MemberProfile extends Component {
             <h1>Member Profile</h1>
                 {members.map(m => m.id === handle  ?
                     <ul key={m.id} value={m.id} name={m.id}>
-                        <li><b>Name:</b> {m.name}</li>
-                        <li><b>Email:</b> {m.email}</li>
+                        <li><b>Name:</b> {m.member_name}</li>
+                        <li><b>Email:</b> {m.member_email}</li>
                         <li><b>Phone:</b> {m.phone}</li>
                         <li><b>Status</b> {m.status}</li>
                     </ul>
