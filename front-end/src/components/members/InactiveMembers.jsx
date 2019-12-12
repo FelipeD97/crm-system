@@ -31,6 +31,12 @@ async componentDidMount() {
                     Name
                 </th>
                 <th>
+                    Email
+                </th>
+                <th>
+                    Phone Number
+                </th>
+                <th>
                     Status
                 </th>
               </tr>
@@ -39,7 +45,9 @@ async componentDidMount() {
               <tbody>
                 {members.map(m => m.status === "inactive" ?
                 <tr key={m.id} value={m.id} name={m.id}>
-                  <td>{m.name}</td> 
+                  <td>{m.name}</td>
+                  <td>{m.email}</td> 
+                  <td>{m.phone}</td>
                   <td>{m.status}</td>
                   </tr>
                   : null)}

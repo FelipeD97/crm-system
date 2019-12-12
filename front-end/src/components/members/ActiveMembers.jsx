@@ -32,6 +32,12 @@ async componentDidMount() {
                     Name
                 </th>
                 <th>
+                    Email
+                </th>
+                <th>
+                    Phone Number
+                </th>
+                <th>
                     Status
                 </th>
               </tr>
@@ -41,6 +47,8 @@ async componentDidMount() {
                 {members.map(m => m.status === "active" ?
                 <tr key={m.id} value={m.id} name={m.id}>
                   <Link to={`/memberprofile/${m.id}`}><td>{m.name}</td></Link>
+                  <td>{m.email}</td>
+                  <td>{m.phone}</td>
                   <td>{m.status}</td>
                   </tr>
                   : null)}
