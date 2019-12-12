@@ -15,7 +15,7 @@ function Nav() {
           <Link to="/"><img src={HomeIcon}></img></Link>
         </li>
         <li>
-          <Link to='/login'><img src={SignIn}></img></Link>
+          <Link to='/transaction'><img src={SignIn}></img></Link>
         </li>
         <li>
           <Link to='/members'><img src={members}></img></Link>

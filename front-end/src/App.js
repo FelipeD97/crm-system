@@ -8,10 +8,11 @@ import Inventory from './components/inventory/inventory';
 import MakeSale from "./components/inventory/store";
 import MemberProfile from './components/members/MemberProfile';
 import AuthProvider from './components/login/auth';
-import PrivateRoute from './components/login/privateroute'
-import SignUp from './components/login/sign-up'
-import Login from './components/login/login.jsx'
-import Signout from './components/login/signout'
+import PrivateRoute from './components/login/privateroute';
+import SignUp from './components/login/sign-up';
+import Login from './components/login/login.jsx';
+import Signout from './components/login/signout';
+import TransactionHistory from './components/inventory/transactionHistory';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
       <Route path='/inventory' component={Inventory} />
       <Route path="/makesale" component={MakeSale} />
       <Route path='/memberprofile/:memberid' component={MemberProfile} />
+      <Route path='/transaction' component={TransactionHistory} />
     
       <AuthProvider>
         <Router>
