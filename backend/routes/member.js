@@ -20,4 +20,14 @@ router.post("/addmember", async (req, res) => {
   }
 });
 
+router.put("/updateMember", async (req,res) => {
+  const { id, name, email, phone, age, status, waiver, contract, date_joined } = req.body;
+  const response = await memberModel.updateMember(id, name, email, phone, age, status, waiver, contract, date_joined);
+  if (response.command === "UPDATE" && response.rowCount >= 1) {
+    res.sendStatus(200);
+  } else {
+    res.send(`Could not update ${name} for id: ${id}`).status(409);
+  }
+});
+
 module.exports = router;
