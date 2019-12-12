@@ -28,11 +28,15 @@ class Inventory {
         return err.message;
       }
     }
-    static async updateInventory(item, cost, photo, stock) {
-      const query = `UPDATE inventory SET '${item}' = ${stock} WHERE id = ${id}`;
+    static async updateInventory(id, stock) {
+      const query = 
+      `UPDATE inventory SET stock = ${stock}
+      WHERE  id = ${id}`;
+
       try {
-        const response = await db.result(query);
+        const response = await db.result(query, [id, stock]);
         return response;
+
       } catch (err) {
         return err.message;
       }
