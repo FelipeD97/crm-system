@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { loadData } from "../../utils/loadData";
 
 class MakeSale extends Component {
     state = {
@@ -11,24 +12,25 @@ class MakeSale extends Component {
         employee_id: ""
     }
 
-    getInfo = async data => {
-        const inventoryInfo = await fetch(`http://localhost:3333/inventory`);
-        const memberInfo = await fetch (`http://localhost:3333/member`);
-        const employeeInfo = await fetch(`http://localhost:3333/employee`);
+    async componentDidMount() {
+        await this.getInfo()
+        console.log(this.state)
+    }
 
-        const inventory = inventoryInfo;
-        const members = memberInfo;
-        const employees = employeeInfo;
+    getInfo = async () => {
+        const inventoryInfo = await loadData(`http://localhost:3333/inventory`);
+        const memberInfo = await loadData(`http://localhost:3333/member`);
+        const employeeInfo = await loadData(`http://localhost:3333/employee`);
 
         this.setState({
-            inventory,
-            members,
-            employees
+            inventory: inventoryInfo,
+            members: memberInfo,
+            employees: employeeInfo
         });
     }
 
     makeSale = async data => {
-        const response = await fetch (`http://localhost:3333/sales/addsale`, {
+        const response = await fetch(`http://localhost:3333/sales/addsale`, {
             method: "POST",
             headers: {
                 Accept: "application/json", "Content-Type": "application/json"
@@ -65,11 +67,31 @@ class MakeSale extends Component {
             <>
                 <form onSubmit={this.handleSubmit} method="POST">
                     <label>
-                        Item
-                        <input type="text"
-                        value={cost}
-                        name="cost"
-                        onChange={this.handleChange} />
+                        <button>Items</button>
+                        <ul>
+                            {inventory.map(item =>
+                                <li key={item.id} value={item.id} name={item.id}>
+                                    {item.item} {item.cost}
+                                </li>)}
+                        </ul>
+                    </label>
+                    <label>
+                        <button>Members</button>
+                        <ul>
+                            {members.map(member =>
+                                <li key={member.id} value={member.id} name={member.id}>
+                                    {member.name}
+                                </li>)}
+                        </ul>
+                    </label>
+                    <label>
+                        <button>Employees</button>
+                        <ul>
+                            {employees.map(employee =>
+                                <li key={employee.id} value={employee.id} name={employee.id}>
+                                    {employee.name}
+                                </li>)}
+                        </ul>
                     </label>
                     <button type="submit">make sale</button>
                 </form>
