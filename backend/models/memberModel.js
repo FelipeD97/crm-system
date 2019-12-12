@@ -33,6 +33,7 @@ class Member {
           return err.message;
         }
       }
+      
 }
 
 module.exports = Member;
