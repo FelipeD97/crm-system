@@ -26,7 +26,7 @@ function App() {
       <Route path='/members' component={Members} />
       <Route path='/inventory' component={Inventory} />
       <Route path="/makesale" component={MakeSale} />
-      <Route path="/members/:id" component={MemberProfile} />
+      <Route path='/memberprofile/:memberid' component={MemberProfile} />
     
       <AuthProvider>
         <Router>
