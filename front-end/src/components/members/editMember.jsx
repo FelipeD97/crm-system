@@ -45,7 +45,8 @@ class EditMember extends Component {
             e.preventDefault();
             const { id, member_name, phone, status } = this.state;
             const edit = {id, member_name, phone, status}
-            this.editMember(edit);
+            this.editMember(edit)
+            this.props.history.push('/members')
           };
     
           handleChange = e => {
@@ -70,7 +71,7 @@ class EditMember extends Component {
                     <ul key={m.id} value={m.id} name={m.id}>
                         <label>
                             Name
-                            <input name="member_name"type="text" value={member_name} placeholder={m.name} onChange={this.handleChange} />
+                            <input name="member_name"type="text" value={member_name} placeholder={m.member_name} onChange={this.handleChange} />
                         </label>
                         <label>
                             Phone Number

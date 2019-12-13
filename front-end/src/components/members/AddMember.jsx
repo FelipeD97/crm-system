@@ -36,6 +36,7 @@ class AddMember extends Component {
         const data = this.state;
         console.log(data);
         this.addMember(data);
+        this.props.history.push('/members');
       };
 
       handleChange = e => {
