@@ -7,7 +7,7 @@ class EditMember extends Component {
     state = {
         members: [],
         id: this.props.match.params.memberid,
-        name: '',
+        member_name: '',
         phone: '',
         status: '',
     }
@@ -24,15 +24,16 @@ class EditMember extends Component {
         }
 
         editMember = async data => {
-            const response = await fetch(`http://localhost:3333/updateMember/`, {
+            const response = await fetch(`http://localhost:3333/member/updateMember`, {
               method: "PUT",
               headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json"
               },
-              body: JSON.stringify(data)
+              body: data
             });
             const reply = await response;
+            console.log(data);
             if (reply.status === 200) {
               alert("Member Updated!");
             }
@@ -43,9 +44,10 @@ class EditMember extends Component {
         
           handleSubmit = e => {
             e.preventDefault();
-            const { id, name, phone, status } = this.state;
+            const { id, member_name, phone, status } = this.state;
             
-            this.editMember(id, name, phone, status);
+            this.editMember(id, member_name, phone, status);
+            console.log(id, member_name, phone, status)
           };
     
           handleChange = e => {
@@ -57,7 +59,7 @@ class EditMember extends Component {
           };
 
     render() { 
-        const { members, name, phone, status } = this.state;
+        const { members, member_name, phone, status } = this.state;
         const handle = parseInt(this.props.match.params.memberid);
 
         return ( 
@@ -69,7 +71,7 @@ class EditMember extends Component {
                     <ul key={m.id} value={m.id} name={m.id}>
                         <label>
                             Name
-                            <input name="name"type="text" value={name} placeholder={m.name} onChange={this.handleChange} />
+                            <input name="member_name"type="text" value={member_name} placeholder={m.name} onChange={this.handleChange} />
                         </label>
                         <label>
                             Phone Number
