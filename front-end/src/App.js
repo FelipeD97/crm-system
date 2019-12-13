@@ -20,12 +20,12 @@ import TransactionHistory from './components/inventory/transactionHistory';
 function App() {
   return (
     <div className="App">
-      <header>
-        <h1>Small Gym CRM</h1>
-      </header>
       <AuthProvider>
         <Router>
-        <Nav />
+          <div className="Nav">
+            <Nav />
+          </div>
+          <div className="dash">
           <PrivateRoute path='/' exact component={HomeDash} />
           <PrivateRoute path='/members' component={Members} />
           <PrivateRoute path='/inventory' component={Inventory} />
@@ -33,6 +33,7 @@ function App() {
           <PrivateRoute path='/memberprofile/:memberid' component={MemberProfile} />
           <PrivateRoute path='/editMember/:memberid' component={EditMember} />
           <PrivateRoute path='/transaction' component={TransactionHistory} />
+          </div>
           <div>
             <PrivateRoute exact path='/signout' component={Signout}/>
             <Route exact path='/signup' component={SignUp}/>
@@ -40,7 +41,8 @@ function App() {
           </div>
         </Router>
       </AuthProvider>
-    </div>
+      
+      </div>
   );
 }
 

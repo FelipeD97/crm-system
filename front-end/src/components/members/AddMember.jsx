@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DatePicker from "react-datepicker";
+import Button from '../styles/styles'
  
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -36,7 +37,7 @@ class AddMember extends Component {
         const data = this.state;
         console.log(data);
         this.addMember(data);
-        this.props.history.push('/members');
+        // this.props.history.push('/');
       };
 
       handleChange = e => {
@@ -95,7 +96,7 @@ class AddMember extends Component {
                     scrollableYearDropdown
                 />
                 </label>
-                <button type="submit">Submit</button>
+                <Button type="submit">Submit</Button>
             </form>
             </div>
             </div>

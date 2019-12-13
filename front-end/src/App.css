@@ -1,5 +1,6 @@
 .App {
-  text-align: center;
+  display: flex;
+  padding: 20%;
 }
 
 .App-logo {
@@ -31,4 +32,17 @@
 img {
   height: 5rem;
   width: 5rem;
+}
+
+.Nav {
+  display: absolute;
+  border: 1px solid black;
+  text-align: left;
+  width: auto;
+}
+
+.dash {
+  border: 1px solid black;
+  width: 100%;
+  padding: 2rem;
 }

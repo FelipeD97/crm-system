@@ -8,7 +8,7 @@ import members from './images/user.svg';
 
 function Nav() {
     return (
-      <div className="Nav">
+      <div>
       <nav>
       <ul>
         <li>
