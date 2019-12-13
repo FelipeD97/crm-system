@@ -28,13 +28,14 @@ class Inventory {
         return err.message;
       }
     }
-    static async updateInventory(id, stock) {
+    static async updateInventory(id) {
+      console.log(id);
       const query = 
-      `UPDATE inventory SET stock = ${stock}
+      `UPDATE inventory SET stock = (SELECT stock FROM inventory WHERE id = ${id}) -1
       WHERE  id = ${id}`;
 
       try {
-        const response = await db.result(query, [id, stock]);
+        const response = await db.one(query);
         return response;
 
       } catch (err) {
