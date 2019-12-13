@@ -7,19 +7,20 @@ class Inventory extends Component {
         inventory: []
 };
 
-async componentDidMount() {
+    async componentDidMount() {
         const data = await loadData(
             `http://localhost:3333/inventory`
             ); 
-            const inventory = data;
+        const inventory = data;
 
         this.setState({
             inventory
         })
-        }
+    }
 
     render() {
         const { inventory } = this.state;
+
         return(
           <>
             <div className="dashInventory">

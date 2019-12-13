@@ -35,6 +35,15 @@ function App() {
       <PrivateRoute path='/editMember/:memberid' component={EditMember} />
 
       <PrivateRoute path='/transaction' component={TransactionHistory} />
+      <Route path='/' exact component={HomeDash} />
+      <Route path='/members' component={Members} />
+      <Route path='/inventory' component={Inventory} />
+      <Route path="/makesale" component={MakeSale} />
+      <Route path='/memberprofile/:memberid' component={MemberProfile} />
+
+      <Route path='/editMember/:memberid' component={EditMember} />
+
+      <Route path='/transaction' component={TransactionHistory} />
     
       
        <div>
