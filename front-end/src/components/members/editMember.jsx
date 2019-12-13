@@ -23,17 +23,16 @@ class EditMember extends Component {
         })
         }
 
-        editMember = async data => {
+        editMember = async edit => {
             const response = await fetch(`http://localhost:3333/member/updateMember`, {
               method: "PUT",
               headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json"
               },
-              body: data
+              body: JSON.stringify(edit)
             });
             const reply = await response;
-            console.log(data);
             if (reply.status === 200) {
               alert("Member Updated!");
             }
@@ -45,13 +44,13 @@ class EditMember extends Component {
           handleSubmit = e => {
             e.preventDefault();
             const { id, member_name, phone, status } = this.state;
-            
-            this.editMember(id, member_name, phone, status);
-            console.log(id, member_name, phone, status)
+            const edit = {id, member_name, phone, status}
+            this.editMember(edit);
           };
     
           handleChange = e => {
             const { name, value } = e.target;
+            console.log(this.state);
         
             this.setState({
               [name]: value
