@@ -8,7 +8,8 @@ class MakeSale extends Component {
         employees:[],
         item_id: "",
         member_id: "",
-        employee_id: ""
+        employee_id: "",
+        stock: []
     }
 
     async componentDidMount() {
@@ -20,11 +21,13 @@ class MakeSale extends Component {
         const inventoryInfo = await loadData(`http://localhost:3333/inventory`);
         const memberInfo = await loadData(`http://localhost:3333/member`);
         const employeeInfo = await loadData(`http://localhost:3333/employee`);
+        
 
         this.setState({
             inventory: inventoryInfo,
             members: memberInfo,
-            employees: employeeInfo
+            employees: employeeInfo,
+            stock: inventoryInfo
         });
     }
 
@@ -45,10 +48,26 @@ class MakeSale extends Component {
         }
     }
 
+    // updateStock = async () => {
+    //     const value = this.state.item_id;
+    //     const response = await fetch(`http://localhost:3333/inventory/updateInventory`, {
+    //         method: "PUT",
+    //         headers: {
+    //             Accept: "application/json", "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify(value)
+    //     });
+        
+        
+        
+    //     console.log(value);
+    // }
+
     handleSubmit = e => {
         e.preventDefault();
         const data = this.state;
         this.makeSale(data);
+        // this.updateStock();
     };
 
     handleChange = e => {
