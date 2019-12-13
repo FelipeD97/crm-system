@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import loadData from '../../utils/loadData';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class InactiveMembers extends Component {
     state = {
@@ -45,7 +46,7 @@ async componentDidMount() {
               <tbody>
                 {members.map(m => m.status === "inactive" ?
                 <tr key={m.id} value={m.id} name={m.id}>
-                  <td>{m.name}</td>
+                  <Link to={`/memberprofile/${m.id}`}>{m.name}</Link>
                   <td>{m.email}</td> 
                   <td>{m.phone}</td>
                   <td>{m.status}</td>

@@ -9,14 +9,25 @@ router.get('/', async (req, res, next) => {
   })
 
 router.post("/addmember", async (req, res) => {
-  const { name, email, phone, age, status, waiver, contract, date_joined } = req.body;
+  const { member_name, member_email, phone, age, status, waiver, contract, date_joined } = req.body;
   console.log(req.body)
-  const response = await memberModel.addMember(name, email, phone, age, status, waiver, contract, date_joined );
+  const response = await memberModel.addMember(member_name, member_email, phone, age, status, waiver, contract, date_joined );
   console.log(response)
   if (response.command === "INSERT"  && response.rowCount >= 1) {
     res.sendStatus(200);
   } else {
-    res.send(`Please add ${name}`).status(409);
+    res.send(`Please add ${member_name}`).status(409);
+  }
+});
+
+router.put("/updateMember", async (req,res) => {
+  const { id, member_name, member_email, phone, age, status, waiver, contract, date_joined } = req.body;
+  const response = await memberModel.updateMember(id, member_name, member_email, phone, age, status, waiver, contract, date_joined);
+
+  if (response.command === "UPDATE" && response.rowCount >= 1) {
+    res.sendStatus(200);
+  } else {
+    res.send(`Could not update ${member_name} for id: ${id}`).status(409);
   }
 });
 

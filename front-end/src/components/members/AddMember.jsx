@@ -5,8 +5,8 @@ import "react-datepicker/dist/react-datepicker.css";
 
 class AddMember extends Component {
     state = {
-        name: '',
-        email: '',
+        member_name: '',
+        member_email: '',
         age: new Date(),
         date_joined: new Date(),
         phone: '',
@@ -55,14 +55,14 @@ class AddMember extends Component {
     
 
     render() {
-        const { name, age, email, phone, date_joined } = this.state;
+        const { member_name, age, member_email, phone, date_joined } = this.state;
         return(
             <div>
             <div>
             <form className="addForm" onSubmit={this.handleSubmit} method="POST">
                 <label>
                     Name
-                    <input type="text" placeholder="name" value={name} name="name" onChange={this.handleChange}></input>
+                    <input type="text" placeholder="name" value={member_name} name="member_name" onChange={this.handleChange}></input>
                 </label>
                 <label>
                     Date Of Birth
@@ -77,7 +77,7 @@ class AddMember extends Component {
                 </label>
                 <label>
                     Email
-                    <input type="email" placeholder="Email" value={email} name="email" onChange={this.handleChange}></input>
+                    <input type="email" placeholder="Email" value={member_email} name="member_email" onChange={this.handleChange}></input>
                 </label>
                 <label>
                     Phone

@@ -8,10 +8,13 @@ import Inventory from './components/inventory/inventory';
 import MakeSale from "./components/inventory/store";
 import MemberProfile from './components/members/MemberProfile';
 import AuthProvider from './components/login/auth';
-import PrivateRoute from './components/login/privateroute'
-import SignUp from './components/login/sign-up'
-import Login from './components/login/login.jsx'
-import Signout from './components/login/signout'
+import PrivateRoute from './components/login/privateroute';
+import SignUp from './components/login/sign-up';
+import Login from './components/login/login.jsx';
+import Signout from './components/login/signout';
+import EditMember from './components/members/editMember';
+import TransactionHistory from './components/inventory/transactionHistory';
+
 
 
 function App() {
@@ -20,27 +23,32 @@ function App() {
     <header>
       <h1>Small Gym CRM</h1>
     </header>
+    <AuthProvider>
     <Router>
       <Nav />
-      <Route path='/' exact component={HomeDash} />
-      <Route path='/members' component={Members} />
-      <Route path='/inventory' component={Inventory} />
-      <Route path="/makesale" component={MakeSale} />
-      <Route path="/members/:id" component={MemberProfile} />
+      <PrivateRoute path='/' exact component={HomeDash} />
+      <PrivateRoute path='/members' component={Members} />
+      <PrivateRoute path='/inventory' component={Inventory} />
+      <PrivateRoute path="/makesale" component={MakeSale} />
+      <PrivateRoute path='/memberprofile/:memberid' component={MemberProfile} />
+
+      <PrivateRoute path='/editMember/:memberid' component={EditMember} />
+
+      <PrivateRoute path='/transaction' component={TransactionHistory} />
     
-      <AuthProvider>
-        <Router>
+      
        <div>
       <PrivateRoute exact path='/signout' component={Signout}/>
       <Route exact path='/signup' component={SignUp}/>
       
-      <Route exact path='/login' component={Login}/>
+      <Route exact path='/' component={Login}/>
 
       </div>
-      </Router>
-      </AuthProvider>
 
     </Router>
+    </AuthProvider>
+
+    
     </div>
   );
 }

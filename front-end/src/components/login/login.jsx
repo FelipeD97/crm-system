@@ -15,8 +15,7 @@ const Login =({history})=>{
                 await firebaseConfig
                 .auth()
                 .signInWithEmailAndPassword(email.value, password.value)
-                console.log(email.value)
-                history.push('/signout');
+                history.push('/signout')
             }catch(error){
                 alert(error)
             }
