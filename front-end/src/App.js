@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import HomeDash from './components/home/DashBoardHome';
-import Nav from './components/Nav/Nav';
+import Nav from './components/nav/Nav';
 import Members from './components/members/members';
 import Inventory from './components/inventory/inventory';
 import MakeSale from "./components/inventory/store";
@@ -23,8 +23,18 @@ function App() {
     <header>
       <h1>Small Gym CRM</h1>
     </header>
+    <AuthProvider>
     <Router>
       <Nav />
+      <PrivateRoute path='/' exact component={HomeDash} />
+      <PrivateRoute path='/members' component={Members} />
+      <PrivateRoute path='/inventory' component={Inventory} />
+      <PrivateRoute path="/makesale" component={MakeSale} />
+      <PrivateRoute path='/memberprofile/:memberid' component={MemberProfile} />
+
+      <PrivateRoute path='/editMember/:memberid' component={EditMember} />
+
+      <PrivateRoute path='/transaction' component={TransactionHistory} />
       <Route path='/' exact component={HomeDash} />
       <Route path='/members' component={Members} />
       <Route path='/inventory' component={Inventory} />
@@ -35,18 +45,19 @@ function App() {
 
       <Route path='/transaction' component={TransactionHistory} />
     
-      <AuthProvider>
-        <Router>
+      
        <div>
       <PrivateRoute exact path='/signout' component={Signout}/>
       <Route exact path='/signup' component={SignUp}/>
       
-      <Route exact path='/login' component={Login}/>
+      <Route exact path='/' component={Login}/>
+
       </div>
-      </Router>
-      </AuthProvider>
 
     </Router>
+    </AuthProvider>
+
+    
     </div>
   );
 }

@@ -4,6 +4,7 @@ import {withRouter, Redirect} from 'react-router';
 import firebaseConfig from '../../config'
 import 'firebase';
 import {AuthContext} from './auth'
+import {Link} from 'react-router-dom'
 
 const Login =({history})=>{
     const handleLogin = useCallback(
@@ -14,8 +15,7 @@ const Login =({history})=>{
                 await firebaseConfig
                 .auth()
                 .signInWithEmailAndPassword(email.value, password.value)
-                console.log(email.value)
-                history.push('/signout');
+                history.push('/signout')
             }catch(error){
                 alert(error)
             }
@@ -31,13 +31,15 @@ const Login =({history})=>{
         <div>
             <h1>Login</h1>
             <form onSubmit={handleLogin}>
-                <label>email
+                <label>Email
                     <input name="email" type="email" placeholder="Email"/>
                 </label>
-                <label>password
+                <label>Password
                     <input name="password" type="password" placeholder="Password"/>
                 </label>
-                <button type="submit">log in</button>
+                <button type="submit">Log In</button>
+                <h1>Don't have an account? </h1><Link exact to='signup'><button>Sign up</button></Link>
+
 
             </form>
         </div>

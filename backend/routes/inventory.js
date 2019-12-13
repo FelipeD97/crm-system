@@ -18,6 +18,16 @@ router.get('/', async (req, res, next) => {
   //   }
 
   // })
+
+  router.put('/updateInventory', async (req, res) => {
+    const { id, stock } = req.body;
+    const response = await inventoryModel.updateInventory(id, stock);
+    if (response.command === "UPDATE" && response.rowCount >= 1) {
+      res.sendStatus(200);
+    } else {
+      res.send(`Could not update ${stock} for id: ${id}`).status(409);
+    }
+  });
   // router.put('/updateInventory', async (req, res) => {
   //   const { id } = req.body;
   //   const response = await inventoryModel.updateInventory(id);

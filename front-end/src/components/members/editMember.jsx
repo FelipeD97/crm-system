@@ -45,6 +45,7 @@ class EditMember extends Component {
             e.preventDefault();
             const { id, member_name, phone, status } = this.state;
             const edit = {id, member_name, phone, status}
+
             this.editMember(edit)
             this.props.history.push('/members')
           };

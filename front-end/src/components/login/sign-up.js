@@ -2,6 +2,7 @@ import React, {useCallback} from 'react';
 import {withRouter} from 'react-router';
 import firebaseConfig from '../../config'
 import 'firebase';
+import {Link} from 'react-router-dom'
 
 const SignUp=({history})=>{
     const handleSignUp= useCallback(async event =>{
@@ -11,7 +12,7 @@ const SignUp=({history})=>{
         await firebaseConfig
         .auth()
         .createUserWithEmailAndPassword(email.value,password.value)
-        history.push('/signout');
+        history.push('/');
         }catch(error){
             alert(error)
         }
@@ -30,6 +31,8 @@ return(
                 <input name="password" type="password" placeholder="Password"/>
             </label>
             <button type='submit'>Sign Up</button>
+            <h1>Already have an account? </h1><Link exact to='/'><button>Login</button></Link>
+
         </form>
     </div>
 )
