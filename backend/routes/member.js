@@ -23,6 +23,7 @@ router.post("/addmember", async (req, res) => {
 router.put("/updateMember", async (req,res) => {
   const { id, member_name, member_email, phone, age, status, waiver, contract, date_joined } = req.body;
   const response = await memberModel.updateMember(id, member_name, member_email, phone, age, status, waiver, contract, date_joined);
+
   if (response.command === "UPDATE" && response.rowCount >= 1) {
     res.sendStatus(200);
   } else {
