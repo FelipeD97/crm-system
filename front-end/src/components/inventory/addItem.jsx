@@ -73,7 +73,7 @@ class AddItem extends Component {
                     stock
                     <input type="text" placeholder="stock" value={stock} name="stock" onChange={this.handleChange}/>
                 </label>
-                <Button variant='contained' color='primary' type="submit">Submit</Button>
+                <Button variant='contained' color='primary' type="submit" onClick={this.handleSubmit}>Submit</Button>
             </FormControl>
             </div>
             </div>
