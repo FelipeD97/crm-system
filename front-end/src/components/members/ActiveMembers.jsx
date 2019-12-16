@@ -57,7 +57,7 @@ async componentDidMount() {
               <TableBody>
                 {members.map(m => m.status === "active" ?
                 <TableRow key={m.id} value={m.id} name={m.id}>
-                  <Link to={`/memberprofile/${m.id}`}><TableCell>{m.member_name}</TableCell></Link>
+                  <TableCell><Link to={`/memberprofile/${m.id}`}>{m.member_name}</Link></TableCell>
                   <TableCell>{m.member_email}</TableCell>
                   <TableCell>{m.phone}</TableCell>
                   <TableCell>{moment(m.date_joined).format("dddd, MMMM Do, YYYY")}</TableCell>
