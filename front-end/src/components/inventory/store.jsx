@@ -48,21 +48,6 @@ class MakeSale extends Component {
         }
     }
 
-    // updateStock = async () => {
-    //     const value = this.state.item_id;
-    //     const response = await fetch(`http://localhost:3333/inventory/updateInventory`, {
-    //         method: "PUT",
-    //         headers: {
-    //             Accept: "application/json", "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify(value)
-    //     });
-        
-        
-        
-    //     console.log(value);
-    // }
-
     handleSubmit = e => {
         e.preventDefault();
         const data = this.state;
