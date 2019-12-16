@@ -15,7 +15,6 @@ const Members = () => {
     const handleClick = e => {
         // console.log(e.currentTarget)
         const { value } = e.currentTarget;
-        console.log(e.currentTarget, "clicked")
         setMembers(value);
     }
     

@@ -40,8 +40,6 @@ function App() {
           <PrivateRoute path='/editMember/:memberid' component={EditMember} />
           <PrivateRoute path='/transaction' component={TransactionHistory} />
           <PrivateRoute path='/additem' component={AddItem}/>
-          </div>
-          <div>
             <PrivateRoute exact path='/signout' component={Signout}/>
             <Route exact path='/signup' component={SignUp}/>
             <Route exact path='/' component={Login}/>
