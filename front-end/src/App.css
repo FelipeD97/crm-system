@@ -7,16 +7,6 @@ a{
   text-decoration: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
 .App-link {
   color: #61dafb;
@@ -32,10 +22,20 @@ img {
   flex-direction: column;
   justify-content: space-evenly;
   margin-right: 5rem;
+  padding-top: 5rem;
 }
 
 .Nav svg {
   height: 6rem;
+}
+
+.Members {
+  padding-top: 10px;
+}
+
+.Members button{
+  display: flex;
+  margin-left: 4rem;
 }
 
 .dash {
@@ -43,11 +43,13 @@ img {
   width: 75%;
   flex-direction: column;
   border: 1px solid black;
+  border-radius: 50px;
   box-shadow: 5px 10px #888888;
-  justify-content: center;
   margin: 5px;
   margin-top: 5rem;
-  padding-top: 3rem;
+  padding: 3rem;
+  height: 30rem;
+  overflow-y:scroll;
 }
 
 .dashInventory {
