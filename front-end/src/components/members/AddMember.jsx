@@ -96,7 +96,7 @@ class AddMember extends Component {
                     scrollableYearDropdown
                 />
                 </label>
-                <Button variant='contained' color='primary' type="submit">Submit</Button>
+                <Button variant='contained' color='primary' type="submit" onClick={this.handleSubmit}>Submit</Button>
             </FormControl>
             </div>
             </div>
