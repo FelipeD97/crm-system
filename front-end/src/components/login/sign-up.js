@@ -3,6 +3,9 @@ import {withRouter} from 'react-router';
 import firebaseConfig from '../../config'
 import 'firebase';
 import {Link} from 'react-router-dom'
+import TextField from '@material-ui/core/TextField';
+import { Typography } from '@material-ui/core';
+
 
 const SignUp=({history})=>{
     const handleSignUp= useCallback(async event =>{
@@ -20,7 +23,7 @@ const SignUp=({history})=>{
 
 return(
     <div>
-        <h1>SignUp</h1>
+        <Typography varian='h1'>SignUp</Typography>
         <form onSubmit={handleSignUp}>
             <label>
                 Email

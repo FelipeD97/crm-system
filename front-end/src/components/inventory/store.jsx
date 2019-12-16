@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { loadData } from "../../utils/loadData";
+import { Radio } from '@material-ui/core';
+import {Typography, Button} from '@material-ui/core'
+
 
 class MakeSale extends Component {
     state = {
@@ -85,33 +88,33 @@ class MakeSale extends Component {
             <>
                 <form onSubmit={this.handleSubmit} method="POST">
                     <label>
-                        <ul>
+                        <ul><Typography>Item</Typography>
                         {inventory.map(item =>
                             <label key={item.id} value={item.id} name={item.id}>
                                 {item.item}
-                                <input type="radio" name="item_id" value={item.id} onChange={this.handleChange} />
+                                <Radio name="item_id" value={item.id} onChange={this.handleChange} />
                             </label>)}
                         </ul>    
                     </label>
                     <label>
-                        <ul>
+                        <ul><Typography>Member</Typography>
                         {members.map(member =>
                             <label key={member.id} value={member.id} name={member.id}>
-                                {member.member_name}
-                                <input type="radio" name="member_id" value={member.id} onChange={this.handleChange} />
+                                 {member.name}
+                                <Radio  name="member_id" value={member.id} onChange={this.handleChange} />
                             </label>)}
                             </ul>
                     </label>
                     <label>
-                        <ul>
+                        <ul><Typography>Employee</Typography>
                         {employees.map(employee =>
                             <label key={employee.id} value={employee.id} name={employee.id}>
-                                {employee.name}
-                                <input type="radio" name="employee_id" value={employee.id} onChange={this.handleChange} />
+                                 {employee.name}
+                                <Radio  name="employee_id" value={employee.id} onChange={this.handleChange} />
                             </label>)}
                             </ul>
                     </label>
-                    <button type="submit">make sale</button>
+                    <Button color='primary' variant='contained' type="submit">Make sale</Button>
                 </form>
             </>
         )

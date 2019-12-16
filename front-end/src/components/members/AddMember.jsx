@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DatePicker from "react-datepicker";
-import Button from '../styles/styles'
+import {Button, FormControl} from '@material-ui/core';
  
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -61,7 +61,7 @@ class AddMember extends Component {
         return(
             <div>
             <div>
-            <form className="addForm" onSubmit={this.handleSubmit} method="POST">
+            <FormControl className="addForm" onSubmit={this.handleSubmit} method="POST">
                 <label>
                     Name
                     <input type="text" placeholder="name" value={member_name} name="member_name" onChange={this.handleChange}></input>
@@ -96,8 +96,8 @@ class AddMember extends Component {
                     scrollableYearDropdown
                 />
                 </label>
-                <Button type="submit">Submit</Button>
-            </form>
+                <Button variant='contained' color='primary' type="submit">Submit</Button>
+            </FormControl>
             </div>
             </div>
         );

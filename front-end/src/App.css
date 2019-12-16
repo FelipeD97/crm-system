@@ -1,3 +1,4 @@
+
 .App {
   display: flex;
   padding: 20%;
@@ -13,7 +14,9 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+a{
+  text-decoration: none;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -33,16 +36,18 @@ img {
   height: 5rem;
   width: 5rem;
 }
-
+/* 
 .Nav {
   display: absolute;
   border: 1px solid black;
   text-align: left;
   width: auto;
+  border-radius: 15px;
+  box-shadow: black;
 }
 
 .dash {
   border: 1px solid black;
   width: 100%;
   padding: 2rem;
-}
+} */
