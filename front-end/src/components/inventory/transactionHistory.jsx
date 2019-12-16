@@ -47,6 +47,9 @@ class TransactionHistory extends Component {
                                 <TableCell>
                                     Employee
                                 </TableCell>
+                                <TableCell>
+                                    Date Sold
+                                </TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -54,8 +57,9 @@ class TransactionHistory extends Component {
                                 <TableRow key={sale.id} value={sale.id} name={sale.id}>
                                     <TableCell>{sale.item}</TableCell>
                                     <TableCell>{sale.cost}</TableCell>
+                                    <TableCell>{sale.member_name}</TableCell>
                                     <TableCell>{sale.name}</TableCell>
-                                    <TableCell>{sale.name}</TableCell>
+                                    <TableCell>{sale.date_sold}</TableCell>
                                 </TableRow>
                             )}
                         </TableBody>
