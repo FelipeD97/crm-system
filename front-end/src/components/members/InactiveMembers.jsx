@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import loadData from '../../utils/loadData';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import moment from "moment";
 
 class InactiveMembers extends Component {
     state = {
@@ -38,6 +39,9 @@ async componentDidMount() {
                     Phone Number
                 </th>
                 <th>
+                    Date Joined
+                </th>
+                <th>
                     Status
                 </th>
               </tr>
@@ -49,6 +53,7 @@ async componentDidMount() {
                   <Link to={`/memberprofile/${m.id}`}><td>{m.member_name}</td></Link>
                   <td>{m.member_email}</td> 
                   <td>{m.phone}</td>
+                  <td>{moment(m.date_joined).format("dddd, MMMM Do, YYYY")}</td>
                   <td>{m.status}</td>
                   </tr>
                   : null)}
