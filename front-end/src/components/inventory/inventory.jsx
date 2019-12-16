@@ -7,6 +7,7 @@ import { TableCell } from '@material-ui/core';
 import { TableHead } from '@material-ui/core';
 import { TableRow } from '@material-ui/core';
 import {FormControl} from '@material-ui/core';
+import AddItem from './addItem'
 
 
 
@@ -27,6 +28,11 @@ class Inventory extends Component {
         this.setState({
             inventory
         })
+        const handleClick = e => {
+            // console.log(e.currentTarget)
+            const { value } = e.target;
+            inventory(value);
+        }
     }
 
     render() {
@@ -70,6 +76,13 @@ class Inventory extends Component {
             <Link to="/makesale">
 
                 <Button color='primary' variant='contained'>Make a Sale</Button>
+              
+            </Link>
+            <Link to="/additem">
+
+                <Button variant='contained' color='primary' onClick={this.handleClick} value="additem">Add Item</Button>
+
+
             </Link>
             </div>
             </>

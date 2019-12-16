@@ -36,7 +36,7 @@ class AddItem extends Component {
         e.preventDefault();
         const data = this.state;
         console.log(data);
-        this.addMember(data);
+        this.AddItem(data);
         // this.props.history.push('/');
       };
 
@@ -58,20 +58,20 @@ class AddItem extends Component {
             <FormControl className="addForm" onSubmit={this.handleSubmit} method="POST">
                 <label>
                     Item
-                    <input type="text" placeholder="item" value={item} name="item" onChange={this.handleChange}></input>
+                    <input type="text" placeholder="item" value={item} name="item" onChange={this.handleChange}/>
                 </label>
                 <label>
                     Cost
-                    <input type="text" placeholder="cost" value={cost} name="cost" onChange={this.handleChange}></input>
+                    <input type="text" placeholder="cost" value={cost} name="cost" onChange={this.handleChange}/>
 
                 </label>
                 <label>
                     Photo
-                    <input type="text" placeholder="photo" value={photo} name="photo" onChange={this.handleChange}></input>
+                    <input type="text" placeholder="photo" value={photo} name="photo" onChange={this.handleChange}/>
                 </label>
                 <label>
                     stock
-                    <input type="text" placeholder="stock" value={stock} name="stock" onChange={this.handleChange}></input>
+                    <input type="text" placeholder="stock" value={stock} name="stock" onChange={this.handleChange}/>
                 </label>
                 <Button variant='contained' color='primary' type="submit">Submit</Button>
             </FormControl>

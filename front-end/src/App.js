@@ -15,6 +15,7 @@ import Signout from './components/login/signout';
 import EditMember from './components/members/editMember';
 import TransactionHistory from './components/inventory/transactionHistory';
 import ThemeProvider from '@material-ui/core/';
+import AddItem from './components/inventory/addItem';
 
 
 
@@ -38,6 +39,7 @@ function App() {
           <PrivateRoute path='/memberprofile/:memberid' component={MemberProfile} />
           <PrivateRoute path='/editMember/:memberid' component={EditMember} />
           <PrivateRoute path='/transaction' component={TransactionHistory} />
+          <PrivateRoute path='/additem' component={AddItem}/>
           </div>
           <div>
             <PrivateRoute exact path='/signout' component={Signout}/>
