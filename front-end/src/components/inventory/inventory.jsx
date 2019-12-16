@@ -1,6 +1,17 @@
 import React, { Component } from 'react';
 import loadData from '../../utils/loadData';
 import { Link } from "react-router-dom";
+import { Table, Button, Typography } from '@material-ui/core';
+import TableBody from '@material-ui/core/TableBody';
+import { TableCell } from '@material-ui/core';
+import { TableHead } from '@material-ui/core';
+import { TableRow } from '@material-ui/core';
+import {FormControl} from '@material-ui/core';
+
+
+
+
+
 
 class Inventory extends Component {
     state = {
@@ -24,40 +35,41 @@ class Inventory extends Component {
         return(
           <>
             <div className="dashInventory">
-            <h1>inventory</h1>
-            <form>
-            <table border="1|0">
-              <thead>
-              <tr>
-                <th>
+            <Typography>Inventory</Typography>
+            <FormControl>
+            <Table>
+              <TableHead>
+              <TableRow>
+                <TableCell>
                     Item
-                </th>
-                <th>
-                    cost
-                </th>
-                <th>
-                    photo
-                </th>
-                <th>
-                    stock
-                </th>
-              </tr>
-              </thead>
+                </TableCell>
+                <TableCell>
+                    Cost
+                </TableCell>
+                <TableCell>
+                    Photo
+                </TableCell>
+                <TableCell>
+                    Stock
+                </TableCell>
+              </TableRow>
+              </TableHead>
               
-              <tbody>
+              <TableBody>
                 {inventory.map(i => (
-                <tr key={i.id} value={i.id} name={i.id}>
-                <td>{i.item}</td> 
-                  <td>{i.cost}</td> 
-                  <td>{i.photo}</td>
-                  <td>{i.stock}</td>
-                  </tr>
+                <TableRow key={i.id} value={i.id} name={i.id}>
+                <TableCell>{i.item}</TableCell> 
+                  <TableCell>{i.cost}</TableCell> 
+                  <TableCell>{i.photo}</TableCell>
+                  <TableCell>{i.stock}</TableCell>
+                  </TableRow>
                 ))}
-                  </tbody>
-            </table>
-            </form>
+                  </TableBody>
+            </Table>
+            </FormControl>
             <Link to="/makesale">
-                <button>Make a Sale</button>
+
+                <Button color='primary' variant='contained'>Make a Sale</Button>
             </Link>
             </div>
             </>

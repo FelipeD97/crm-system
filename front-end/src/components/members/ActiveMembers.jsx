@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import loadData from '../../utils/loadData';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Table, Button } from '@material-ui/core';
+import TableBody from '@material-ui/core/TableBody';
+import { TableCell } from '@material-ui/core';
+import { TableHead } from '@material-ui/core';
+import { TableRow } from '@material-ui/core';
+import {FormControl} from '@material-ui/core';
+import {Typography} from '@material-ui/core';
 
 class ActiveMembers extends Component {
     state = {
@@ -25,35 +32,35 @@ async componentDidMount() {
             <div className="dashMembers">
             <h1>Members</h1>
             <form>
-            <table border="1|0">
-              <thead>
-              <tr>
-                <th>
+            <Table border="1|0">
+              <TableHead>
+              <TableRow>
+                <TableCell>
                     Name
-                </th>
-                <th>
+                </TableCell>
+                <TableCell>
                     Email
-                </th>
-                <th>
+                </TableCell>
+                <TableCell>
                     Phone Number
-                </th>
-                <th>
+                </TableCell>
+                <TableCell>
                     Status
-                </th>
-              </tr>
-              </thead>
+                </TableCell>
+              </TableRow>
+              </TableHead>
               
-              <tbody>
+              <TableBody>
                 {members.map(m => m.status === "active" ?
-                <tr key={m.id} value={m.id} name={m.id}>
-                  <Link to={`/memberprofile/${m.id}`}><td>{m.member_name}</td></Link>
-                  <td>{m.member_email}</td>
-                  <td>{m.phone}</td>
-                  <td>{m.status}</td>
-                  </tr>
+                <TableRow key={m.id} value={m.id} name={m.id}>
+                  <Link to={`/memberprofile/${m.id}`}><TableCell>{m.member_name}</TableCell></Link>
+                  <TableCell>{m.member_email}</TableCell>
+                  <TableCell>{m.phone}</TableCell>
+                  <TableCell>{m.status}</TableCell>
+                  </TableRow>
                   : null)}
-                  </tbody>
-            </table>
+                  </TableBody>
+            </Table>
             </form>
             </div>
             </>

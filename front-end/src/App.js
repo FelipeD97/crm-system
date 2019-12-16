@@ -14,6 +14,9 @@ import Login from './components/login/login.jsx';
 import Signout from './components/login/signout';
 import EditMember from './components/members/editMember';
 import TransactionHistory from './components/inventory/transactionHistory';
+import ThemeProvider from '@material-ui/core/';
+
+
 
 
 
@@ -21,7 +24,9 @@ function App() {
   return (
     <div className="App">
       <AuthProvider>
+        
         <Router>
+
           <div className="Nav">
             <Nav />
           </div>

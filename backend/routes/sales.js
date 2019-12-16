@@ -10,10 +10,10 @@ router.get('/', async (req, res, next) => {
   })
 
 router.post("/addsale", async (req, res) => {
-  const { item_id, member_id, employee_id } = req.body;
+  const { item_id, member_id, employee_id, date_sold } = req.body;
   
   const update = await inventoryModel.updateInventory(item_id)
-  const response = await salesModel.addSale(item_id, member_id, employee_id);
+  const response = await salesModel.addSale(item_id, member_id, employee_id, date_sold);
   
   if (response.command === "INSERT" && response.rowCount >=1) {
     res.sendStatus(200, update);
