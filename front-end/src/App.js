@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import HomeDash from './components/home/DashBoardHome';
-import Nav from './components/Nav/Nav';
+import Nav from './components/nav/Nav';
 import Members from './components/members/members';
 import Inventory from './components/inventory/inventory';
 import MakeSale from "./components/inventory/store";
@@ -15,6 +15,7 @@ import Signout from './components/login/signout';
 import EditMember from './components/members/editMember';
 import TransactionHistory from './components/inventory/transactionHistory';
 import ThemeProvider from '@material-ui/core/';
+import AddItem from './components/inventory/addItem';
 
 
 
@@ -38,7 +39,7 @@ function App() {
           <PrivateRoute path='/memberprofile/:memberid' component={MemberProfile} />
           <PrivateRoute path='/editMember/:memberid' component={EditMember} />
           <PrivateRoute path='/transaction' component={TransactionHistory} />
-    
+          <PrivateRoute path='/additem' component={AddItem}/>
             <PrivateRoute exact path='/signout' component={Signout}/>
             <Route exact path='/signup' component={SignUp}/>
             <Route exact path='/' component={Login}/>
