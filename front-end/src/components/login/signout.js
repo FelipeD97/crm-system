@@ -9,7 +9,7 @@ import Analytics from '../home/analytics'
 const Signout =()=>{
     return(
    
-        <div>
+        <div className="SignOut">
         <Typography>Home</Typography>
         <Button variant='contained' color='secondary' onClick={()=> firebaseConfig.auth().signOut()}>Sign out</Button>
         </div>

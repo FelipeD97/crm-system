@@ -22,7 +22,7 @@ img {
   flex-direction: column;
   justify-content: space-evenly;
   margin-right: 5rem;
-  padding-top: 5rem;
+  padding-top: 2rem;
 }
 
 .Nav svg {
@@ -30,7 +30,7 @@ img {
 }
 
 .Members {
-  padding-top: 10px;
+  padding-top: 2rem;
 }
 
 .Members button{
@@ -46,7 +46,7 @@ img {
   border-radius: 50px;
   box-shadow: 5px 10px #888888;
   margin: 5px;
-  margin-top: 5rem;
+  margin-top: 1rem;
   padding: 3rem;
   height: 30rem;
   overflow-y:scroll;
@@ -55,4 +55,17 @@ img {
 .dashInventory {
   display: flex;
   flex-direction: column;
+}
+
+.Header {
+  width: 100%;
+  height: 6rem;
+  background-color: RGB(85,27,137);
+  align-items: center;
+}
+
+.SignOut {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
