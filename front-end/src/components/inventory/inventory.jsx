@@ -7,7 +7,7 @@ import { TableCell } from '@material-ui/core';
 import { TableHead } from '@material-ui/core';
 import { TableRow } from '@material-ui/core';
 import {FormControl} from '@material-ui/core';
-import AddItem from './addItem'
+import { StylesContext } from '@material-ui/styles';
 
 
 
@@ -28,11 +28,6 @@ class Inventory extends Component {
         this.setState({
             inventory
         })
-        const handleClick = e => {
-            // console.log(e.currentTarget)
-            const { value } = e.target;
-            inventory(value);
-        }
     }
 
     render() {
@@ -41,50 +36,61 @@ class Inventory extends Component {
         return(
           <>
             <div className="dashInventory">
-            <Typography>Inventory</Typography>
-            <FormControl>
-            <Table>
-              <TableHead>
-              <TableRow>
-                <TableCell>
-                    Item
-                </TableCell>
-                <TableCell>
-                    Cost
-                </TableCell>
-                <TableCell>
-                    Photo
-                </TableCell>
-                <TableCell>
-                    Stock
-                </TableCell>
-              </TableRow>
-              </TableHead>
-              
-              <TableBody>
-                {inventory.map(i => (
-                <TableRow key={i.id} value={i.id} name={i.id}>
-                <TableCell>{i.item}</TableCell> 
-                  <TableCell>{i.cost}</TableCell> 
-                  <TableCell>{i.photo}</TableCell>
-                  <TableCell>{i.stock}</TableCell>
-                  </TableRow>
-                ))}
-                  </TableBody>
-            </Table>
-            </FormControl>
-            <Link to="/makesale">
-
-                <Button color='primary' variant='contained'>Make a Sale</Button>
-              
-            </Link>
-            <Link to="/additem">
-
-                <Button variant='contained' color='primary' onClick={this.handleClick} value="additem">Add Item</Button>
-
-
-            </Link>
+                <Typography className="inventoryTitle">Inventory</Typography>
+                <FormControl>
+                <Table>
+                <TableHead>
+                <TableRow>
+                    <TableCell>
+                        Item
+                    </TableCell>
+                    <TableCell>
+                        Cost
+                    </TableCell>
+                    <TableCell>
+                        Photo
+                    </TableCell>
+                    <TableCell>
+                        Stock
+                    </TableCell>
+                </TableRow>
+                </TableHead>
+                
+                <TableBody>
+                    {inventory.map(i => (
+                    <TableRow key={i.id} value={i.id} name={i.id}>
+                    <TableCell>{i.item}</TableCell> 
+                    <TableCell>{i.cost}</TableCell> 
+                    <TableCell>{i.photo}</TableCell>
+                    <TableCell>{i.stock}</TableCell>
+                    </TableRow>
+                    ))}
+                    </TableBody>
+                </Table>
+                </FormControl>
+                <div className="buttonContainer">
+                    <Link to="/makesale">
+                        <Button color='primary' variant='contained'>Make a Sale</Button>
+                    </Link>
+                    <Link to="/additem">
+                        <Button variant='contained' color='primary' onClick={this.handleClick} value="additem">Add Item</Button>
+                    </Link>
+                </div>
             </div>
+            <style jsx>
+                {`
+                    .buttonContainer {
+                        display: flex;
+                        justify-content: space-around;
+                        padding: 1rem;
+                    }
+                    .inventoryTitle {
+                        display: flex;
+                        justify-content: center;
+                        font: 24px bold;
+                    }
+                `}
+            </style>
             </>
         );
     }

@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import HomeDash from './components/home/DashBoardHome';
 import Nav from './components/nav/Nav';
 import Members from './components/members/members';
@@ -14,7 +14,6 @@ import Login from './components/login/login.jsx';
 import Signout from './components/login/signout';
 import EditMember from './components/members/editMember';
 import TransactionHistory from './components/inventory/transactionHistory';
-import ThemeProvider from '@material-ui/core/';
 import AddItem from './components/inventory/addItem';
 import Header from './components/header/headerMenu';
 
