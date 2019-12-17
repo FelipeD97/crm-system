@@ -14,6 +14,10 @@ import Login from './components/login/login.jsx';
 import Signout from './components/login/signout';
 import EditMember from './components/members/editMember';
 import TransactionHistory from './components/inventory/transactionHistory';
+import ThemeProvider from '@material-ui/core/';
+import AddItem from './components/inventory/addItem';
+
+
 
 
 
@@ -21,7 +25,9 @@ function App() {
   return (
     <div className="App">
       <AuthProvider>
+        
         <Router>
+
           <div className="Nav">
             <Nav />
           </div>
@@ -33,8 +39,7 @@ function App() {
           <PrivateRoute path='/memberprofile/:memberid' component={MemberProfile} />
           <PrivateRoute path='/editMember/:memberid' component={EditMember} />
           <PrivateRoute path='/transaction' component={TransactionHistory} />
-          </div>
-          <div>
+          <PrivateRoute path='/additem' component={AddItem}/>
             <PrivateRoute exact path='/signout' component={Signout}/>
             <Route exact path='/signup' component={SignUp}/>
             <Route exact path='/' component={Login}/>

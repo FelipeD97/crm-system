@@ -1,29 +1,12 @@
+
 .App {
   display: flex;
-  padding: 20%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a{
+  text-decoration: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
 .App-link {
   color: #61dafb;
@@ -35,14 +18,41 @@ img {
 }
 
 .Nav {
-  display: absolute;
-  border: 1px solid black;
-  text-align: left;
-  width: auto;
+  display: fixed;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-right: 5rem;
+  padding-top: 5rem;
+}
+
+.Nav svg {
+  height: 6rem;
+}
+
+.Members {
+  padding-top: 10px;
+}
+
+.Members button{
+  display: flex;
+  margin-left: 4rem;
 }
 
 .dash {
+  display: flex;
+  width: 75%;
+  flex-direction: column;
   border: 1px solid black;
-  width: 100%;
-  padding: 2rem;
+  border-radius: 50px;
+  box-shadow: 5px 10px #888888;
+  margin: 5px;
+  margin-top: 5rem;
+  padding: 3rem;
+  height: 30rem;
+  overflow-y:scroll;
+}
+
+.dashInventory {
+  display: flex;
+  flex-direction: column;
 }

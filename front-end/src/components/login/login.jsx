@@ -5,6 +5,14 @@ import firebaseConfig from '../../config'
 import 'firebase';
 import {AuthContext} from './auth'
 import {Link} from 'react-router-dom'
+import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
+import TextField from '@material-ui/core/TextField';
+import { Typography } from '@material-ui/core';
+
+
+
+
 
 const Login =({history})=>{
     const handleLogin = useCallback(
@@ -29,16 +37,19 @@ const Login =({history})=>{
     }
     return(
         <div>
-            <h1>Login</h1>
+            <Typography align='center' variant='h2'color='textPrimary' display='block'>Login</Typography>
             <form onSubmit={handleLogin}>
                 <label>Email
-                    <input name="email" type="email" placeholder="Email"/>
+                    <TextField color='secondary' name="email" type="email" placeholder="Email"></TextField>
                 </label>
                 <label>Password
-                    <input name="password" type="password" placeholder="Password"/>
+                    <TextField color='secondary' name="password" type="password" placeholder="Password"></TextField>
                 </label>
-                <button type="submit">Log In</button>
-                <h1>Don't have an account? </h1><Link exact to='signup'><button>Sign up</button></Link>
+                <Button type="submit" variant='contained' color='secondary'>Log In</Button>
+                <Typography variant='h5' color='textPrimary' align='center'>Don't have an account? </Typography>
+                <Link exact to='signup' 
+                ><Button color='secondary' variant='contained'>Sign up</Button>
+                </Link>
 
 
             </form>

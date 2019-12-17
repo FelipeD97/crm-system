@@ -2,9 +2,9 @@ const db = require('./conn');
 bcrypt = require("bcryptjs");
 
 class Employee {
-    constructor(id, name, email, phone, password) {
+    constructor(id, employee_name, email, phone, password) {
       this.id = id;
-      this.name = name;
+      this.employee_name = employee_name;
       this.email = email;
       this.phone = phone;
       this.password = password;
@@ -18,11 +18,11 @@ class Employee {
         return err.message;
       }
     }
-    static async addEmployee(name, email, phone, password) {
-      const query = `INSERT INTO employees (name, email, phone, password) VALUES ($1, $2, $3, $4)`;
+    static async addEmployee(employee_name, email, phone, password) {
+      const query = `INSERT INTO employees (employee_name, email, phone, password) VALUES ($1, $2, $3, $4)`;
   
       try {
-        const response = await db.result(query, [name, email, phone, password]);
+        const response = await db.result(query, [employee_name, email, phone, password]);
         return response;
       } catch (err) {
         return err.message;
@@ -38,7 +38,7 @@ class Employee {
           const response = await db.one(
               `SELECT 
                   id, 
-                  name,
+                  employee_name,
                   phone,
                   password
                   FROM employees WHERE email = $1;`, 
@@ -47,8 +47,8 @@ class Employee {
           const isValid = this.checkPassword(response.password);
 
             if (!!isValid) {
-                const { id, name, phone } = response;
-                return { isValid, id, name, phone };
+                const { id, employee_name, phone } = response;
+                return { isValid, id, employee_name, phone };
             } else {
                 return { isValid };
             }

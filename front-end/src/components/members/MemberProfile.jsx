@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import loadData from '../../utils/loadData';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import moment from "moment";
 
 
 class MemberProfile extends Component {
@@ -37,6 +38,7 @@ class MemberProfile extends Component {
                         <li><b>Name:</b> {m.member_name}</li>
                         <li><b>Email:</b> {m.member_email}</li>
                         <li><b>Phone:</b> {m.phone}</li>
+                        <li><b>Date Joined:</b> {moment(m.date_joined).format("dddd, MMMM Do, YYYY")}</li>
                         <li><b>Status</b> {m.status}</li>
                         <Link to={`/editMember/${m.id}`}><button>Edit</button></Link>
                     </ul>

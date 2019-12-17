@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import ActiveMembers from './ActiveMembers';
 import InactiveMembers from './InactiveMembers';
 import AddMember from './AddMember';
+import {Button} from '@material-ui/core'
+import {ButtonGroup, Typography} from '@material-ui/core'
+
+
+
 
 
 const Members = () => {
@@ -9,25 +14,22 @@ const Members = () => {
 
     const handleClick = e => {
         // console.log(e.currentTarget)
-        const { value } = e.target;
+        const { value } = e.currentTarget;
         setMembers(value);
     }
     
     return(
     <>
     <div className='Members'>
-        <ul>
-            <li>
-                <button onClick={handleClick} value="active">Active</button>
-            </li>
-            <li>
-                <button onClick={handleClick} value="inactive">Inactive</button>
-            </li>
-            <li>
-            <button onClick={handleClick} value="addmember">Add Member</button>
-            </li>
-        </ul>
-        </div>
+        <ButtonGroup orientation="horozontal" color="primary" aria-label="vertical outlined primary button group">
+            <Button variant='contained' color='primary' onClick={handleClick} value="active">Active</Button>
+           
+            <Button variant='contained' color='primary' onClick={handleClick} value="inactive">Inactive</Button>
+          
+            <Button variant='contained' color='primary' onClick={handleClick} value="addmember">Add Member</Button>
+        </ButtonGroup>      
+
+           </div>
         {members === 'active' ? <ActiveMembers /> : null}
         {members === 'inactive' ? <InactiveMembers /> : null}
         {members === 'addmember' ? <AddMember /> : null}

@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 import { loadData } from "../../utils/loadData";
+import { Button } from '@material-ui/core';
+import ItemDropdown from "../dropdowns/itemDropdown";
+import MemberDropdown from "../dropdowns/memberDropdown";
+import EmployeeDropdown from "../dropdowns/employeeDropdown";
+import { Redirect } from 'react-router-dom';
 
 class MakeSale extends Component {
     state = {
@@ -9,11 +14,14 @@ class MakeSale extends Component {
         item_id: "",
         member_id: "",
         employee_id: "",
+        stock: [],
+        referrer: null,
+        date_sold: new Date(),
         stock: []
     }
 
     async componentDidMount() {
-        await this.getInfo()
+        await this.getInfo();
         console.log(this.state)
     }
 
@@ -48,70 +56,36 @@ class MakeSale extends Component {
         }
     }
 
-    // updateStock = async () => {
-    //     const value = this.state.item_id;
-    //     const response = await fetch(`http://localhost:3333/inventory/updateInventory`, {
-    //         method: "PUT",
-    //         headers: {
-    //             Accept: "application/json", "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify(value)
-    //     });
-        
-        
-        
-    //     console.log(value);
-    // }
-
     handleSubmit = e => {
         e.preventDefault();
         const data = this.state;
         this.makeSale(data);
-        // this.updateStock();
+        this.setState({referrer: '/inventory'})
     };
 
     handleChange = e => {
         const { name, value } = e.target;
-
+        console.log(e);
         this.setState({
             [name]: value
         });
     };
 
     render() {
-        const { inventory, members, employees } = this.state;
+        const { inventory, members, employees, referrer } = this.state;
+        if (referrer) return <Redirect to={referrer} />;
 
         return(
             <>
                 <form onSubmit={this.handleSubmit} method="POST">
-                    <label>
-                        <ul>
-                        {inventory.map(item =>
-                            <label key={item.id} value={item.id} name={item.id}>
-                                {item.item}
-                                <input type="radio" name="item_id" value={item.id} onChange={this.handleChange} />
-                            </label>)}
-                        </ul>    
-                    </label>
-                    <label>
-                        <ul>
-                        {members.map(member =>
-                            <label key={member.id} value={member.id} name={member.id}>
-                                {member.member_name}
-                                <input type="radio" name="member_id" value={member.id} onChange={this.handleChange} />
-                            </label>)}
-                            </ul>
-                    </label>
-                    <label>
-                        <ul>
-                        {employees.map(employee =>
-                            <label key={employee.id} value={employee.id} name={employee.id}>
-                                {employee.name}
-                                <input type="radio" name="employee_id" value={employee.id} onChange={this.handleChange} />
-                            </label>)}
-                            </ul>
-                    </label>
-                    <button type="submit">make sale</button>
+                    <ItemDropdown inventory={inventory} name="item_id"
+                    handleChange={this.handleChange} />
+
+                    <MemberDropdown members={members} name="member_id" handleChange={this.handleChange} />
+                    
+                    <EmployeeDropdown employees={employees} name="employee_id" handleChange={this.handleChange} />
+                    
+                    <Button color='primary' letiant='contained' type="submit">Make sale</Button>
                 </form>
             </>
         )
