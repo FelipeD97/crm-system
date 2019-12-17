@@ -46,6 +46,9 @@ function App() {
           </div>
         </Router>
       </AuthProvider>
+      <div className="Footer">
+        <p>Footer</p>
+      </div>
       </>
   );
 }

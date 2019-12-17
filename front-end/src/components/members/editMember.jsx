@@ -64,12 +64,13 @@ class EditMember extends Component {
         const { members, member_name, phone, status, referrer } = this.state;
         const handle = parseInt(this.props.match.params.memberid);
         if (referrer) return <Redirect to={referrer} />;
+        console.log(this.props);
 
         return ( 
         <>
         <div>
             <h1>Edit Profile</h1>
-                <form>
+                <form className="theForm" id="theForm">
                 {members.map(m => m.id === handle  ?
                     <ul key={m.id} value={m.id} name={m.id}>
                         <label>
@@ -84,7 +85,7 @@ class EditMember extends Component {
                             Status
                             <input name="status"type="text" value={status} placeholder={m.status} onChange={this.handleChange} />
                         </label>
-                    <button onClick={this.handleSubmit}>Update Now</button>
+                    <button onClick={this.handleSubmit} id="submitButton">Update Now</button>
                     </ul>
                 : null)}
                 </form>

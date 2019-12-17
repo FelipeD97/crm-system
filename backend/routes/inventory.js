@@ -8,9 +8,9 @@ router.get('/', async (req, res, next) => {
     res.json(getInventory).status(200);
   })
   router.post("/addinventory", async (req, res) => {
-    const { item, cost, photo,stock } = req.body;
+    const { item, cost, photo, stock } = req.body;
     console.log(req.body)
-    const response = await inventoryModel.addInventory(item, cost, photo,stock );
+    const response = await inventoryModel.addInventory(item, cost, photo, stock);
     if (response.command === "INSERT" && response.rowCount >= 1) {
       res.sendStatus(200);
     } else {
