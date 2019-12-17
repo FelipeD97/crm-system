@@ -9,7 +9,7 @@ import { ListItem } from '@material-ui/core';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
 import ListIcon from '@material-ui/icons/List';
-
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 
 
 
@@ -30,7 +30,7 @@ function Nav() {
           <Link to='/members'><PeopleAltIcon fontSize='large'/></Link>
         </ListItem>
         <ListItem>
-          <Link to='/inventory'><ListIcon fontSize='large'/></Link>
+          <Link to='/inventory'><AttachMoneyIcon fontSize='large'/></Link>
         </ListItem>
       </ul>
     </nav>

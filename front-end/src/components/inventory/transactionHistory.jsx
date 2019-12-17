@@ -59,7 +59,7 @@ class TransactionHistory extends Component {
                                     <TableCell>{sale.item}</TableCell>
                                     <TableCell>{sale.cost}</TableCell>
                                     <TableCell>{sale.member_name}</TableCell>
-                                    <TableCell>{sale.name}</TableCell>
+                                    <TableCell>{sale.employee_name}</TableCell>
                             <TableCell>{moment(sale.date_sold).format("dddd, MMMM Do, YYYY")}</TableCell>
                                 </TableRow>
                             )}

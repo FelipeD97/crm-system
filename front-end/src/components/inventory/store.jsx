@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { loadData } from "../../utils/loadData";
-import { Radio } from '@material-ui/core';
-import {Typography, Button} from '@material-ui/core';
+import { Button } from '@material-ui/core';
+import ItemDropdown from "../dropdowns/itemDropdown";
+import MemberDropdown from "../dropdowns/memberDropdown";
+import EmployeeDropdown from "../dropdowns/employeeDropdown";
 import { Redirect } from 'react-router-dom';
-
 
 class MakeSale extends Component {
     state = {
@@ -21,7 +22,6 @@ class MakeSale extends Component {
 
     async componentDidMount() {
         await this.getInfo();
-        await this.convertDate();
         console.log(this.state)
     }
 
@@ -65,28 +65,11 @@ class MakeSale extends Component {
 
     handleChange = e => {
         const { name, value } = e.target;
-
+        console.log(e);
         this.setState({
             [name]: value
         });
     };
-
-    convertDate() {
-        let currentDate = new Date();
-        let options = {
-            weekday: "long",
-            year: "numeric",
-            month: "long",
-            day: "numeric"
-        };
-    
-        new Intl.DateTimeFormat("en-US", options).format(
-            currentDate
-        );
-        this.setState({
-            date_sold: currentDate
-        })
-    }
 
     render() {
         const { inventory, members, employees, referrer } = this.state;
@@ -95,33 +78,13 @@ class MakeSale extends Component {
         return(
             <>
                 <form onSubmit={this.handleSubmit} method="POST">
-                    <label>
-                        <ul>Item
-                        {inventory.map(item =>
-                            <label key={item.id} value={item.id} name={item.id}>
-                                {item.item}
-                                <input type="radio" name="item_id" value={item.id} onChange={this.handleChange} />
-                            </label>)}
-                        </ul>    
-                    </label>
-                    <label>
-                        <ul><Typography>Member</Typography>
-                        {members.map(member =>
-                            <label key={member.id} value={member.id} name={member.id}>
-                                 {member.member_name}
-                                <Radio  name="member_id" value={member.id} onChange={this.handleChange} />
-                            </label>)}
-                            </ul>
-                    </label>
-                    <label>
-                        <ul><Typography>Employee</Typography>
-                        {employees.map(employee =>
-                            <label key={employee.id} value={employee.id} name={employee.id}>
-                                 {employee.name}
-                                <Radio  name="employee_id" value={employee.id} onChange={this.handleChange} />
-                            </label>)}
-                            </ul>
-                    </label>
+                    <ItemDropdown inventory={inventory} name="item_id"
+                    handleChange={this.handleChange} />
+
+                    <MemberDropdown members={members} name="member_id" handleChange={this.handleChange} />
+                    
+                    <EmployeeDropdown employees={employees} name="employee_id" handleChange={this.handleChange} />
+                    
                     <Button color='primary' letiant='contained' type="submit">Make sale</Button>
                 </form>
             </>
