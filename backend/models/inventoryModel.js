@@ -12,7 +12,7 @@ class Inventory {
   
     static async getInventory() {
       try {
-        const response = await db.any(`select * from inventory;`);
+        const response = await db.any(`select * from inventory ORDER BY item ASC;`);
         return response;
       } catch (err) {
         return err.message;

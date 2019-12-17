@@ -1,6 +1,7 @@
 
 .App {
   display: flex;
+  background-color:RGB(169,169,169)
 }
 
 a{
@@ -21,8 +22,9 @@ img {
   display: fixed;
   flex-direction: column;
   justify-content: space-evenly;
-  margin-right: 5rem;
+  margin-right: 2rem;
   padding-top: 2rem;
+  background-color: RGB(169,169,169);
 }
 
 .Nav svg {
@@ -50,6 +52,7 @@ img {
   padding: 3rem;
   height: 30rem;
   overflow-y:scroll;
+  background-color: RGB(250,248,247);
 }
 
 .dashInventory {

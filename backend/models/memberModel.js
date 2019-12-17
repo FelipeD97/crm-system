@@ -16,7 +16,7 @@ class Member {
   
     static async getMember() {
       try {
-        const response = await db.any(`select * from members;`);
+        const response = await db.any(`select * from members ORDER BY member_name ASC;`);
         return response;
       } catch (err) {
         return err.message;
@@ -34,11 +34,11 @@ class Member {
         }
       }
     
-    static async updateMember(id, member_name, member_email, phone, age, status, waiver, contract, date_joined){
-      const query = `UPDATE members set (member_name, member_email, phone, age, status, waiver, contract, date_joined) = ($1,$2,$3,$4,$5,$6,$7,$8) where id = ${id}`
+    static async updateMember(id, member_name, member_email, phone, age, status, waiver, contract){
+      const query = `UPDATE members set (member_name, member_email, phone, age, status, waiver, contract) = ($1,$2,$3,$4,$5,$6,$7) where id = ${id}`
     
         try {
-          const response = await db.result(query, [member_name, member_email, phone, age, status, waiver, contract, date_joined]);
+          const response = await db.result(query, [member_name, member_email, phone, age, status, waiver, contract]);
           return response;
         } catch (err) {
           return err.message;
