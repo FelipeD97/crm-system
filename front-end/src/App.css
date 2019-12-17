@@ -69,3 +69,10 @@ img {
   align-items: center;
   justify-content: flex-end;
 }
+
+.titleContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+
+}
