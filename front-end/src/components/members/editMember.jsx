@@ -64,7 +64,6 @@ class EditMember extends Component {
         const { members, member_name, phone, status, referrer } = this.state;
         const handle = parseInt(this.props.match.params.memberid);
         if (referrer) return <Redirect to={referrer} />;
-        console.log(this.props);
 
         return ( 
         <>
