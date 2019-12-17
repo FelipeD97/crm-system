@@ -1,5 +1,5 @@
   
-import React from 'react';
+import React, { Component } from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -22,9 +22,9 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function ButtonAppBar() {
+const ButtonAppBar = props => {
   const classes = useStyles();
-
+    console.log("This is props for menu: ", props);
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -40,4 +40,6 @@ export default function ButtonAppBar() {
       </AppBar>
     </div>
   );
-  }
+}
+
+export default ButtonAppBar;

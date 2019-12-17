@@ -16,13 +16,11 @@ class MakeSale extends Component {
         employee_id: "",
         stock: [],
         referrer: null,
-        date_sold: new Date(),
-        stock: []
+        date_sold: new Date()
     }
 
     async componentDidMount() {
         await this.getInfo();
-        console.log(this.state)
     }
 
     getInfo = async () => {
@@ -65,7 +63,7 @@ class MakeSale extends Component {
 
     handleChange = e => {
         const { name, value } = e.target;
-        console.log(e);
+        
         this.setState({
             [name]: value
         });
