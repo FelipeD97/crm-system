@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DatePicker from "react-datepicker";
-import {Button, FormControl} from '@material-ui/core';
+import {Button, FormControl, TextField, FormLabel} from '@material-ui/core';
 import { Redirect } from 'react-router-dom';
  
 import "react-datepicker/dist/react-datepicker.css";
@@ -58,23 +58,11 @@ class AddItem extends Component {
             <div>
             <div>
             <FormControl className="addForm" onSubmit={this.handleSubmit} method="POST">
-                <label>
-                    Item
-                    <input type="text" placeholder="item" value={item} name="item" onChange={this.handleChange}/>
-                </label>
-                <label>
-                    Cost
-                    <input type="text" placeholder="cost" value={cost} name="cost" onChange={this.handleChange}/>
-
-                </label>
-                <label>
-                    Photo
-                    <input type="text" placeholder="photo" value={photo} name="photo" onChange={this.handleChange}/>
-                </label>
-                <label>
-                    stock
-                    <input type="text" placeholder="stock" value={stock} name="stock" onChange={this.handleChange}/>
-                </label>
+                    
+                    <TextField id="standard-basic" label="Item" type="text" placeholder="item" value={item} name="item" onChange={this.handleChange}/>
+                    <TextField id="standard-basic" label="Cost" type="text" placeholder="cost" value={cost} name="cost" onChange={this.handleChange}/>
+                    <TextField id="standard-basic" label="Photo" type="text" placeholder="photo" value={photo} name="photo" onChange={this.handleChange}/>
+                    <TextField id="standard-basic" label="Stock" type="text" placeholder="stock" value={stock} name="stock" onChange={this.handleChange}/>
                 <Button variant='contained' color='primary' type="submit" onClick={this.handleSubmit}>Submit</Button>
             </FormControl>
             </div>
