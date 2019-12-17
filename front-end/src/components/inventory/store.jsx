@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { loadData } from "../../utils/loadData";
 import { Radio } from '@material-ui/core';
-import {Typography, Button} from '@material-ui/core'
+import {Typography, Button} from '@material-ui/core';
+import { Redirect } from 'react-router-dom';
 
 
 class MakeSale extends Component {
@@ -12,7 +13,8 @@ class MakeSale extends Component {
         item_id: "",
         member_id: "",
         employee_id: "",
-        stock: []
+        stock: [],
+        referrer: null
     }
 
     async componentDidMount() {
@@ -70,7 +72,7 @@ class MakeSale extends Component {
         e.preventDefault();
         const data = this.state;
         this.makeSale(data);
-        // this.updateStock();
+        this.setState({referrer: '/inventory'})
     };
 
     handleChange = e => {
@@ -82,7 +84,8 @@ class MakeSale extends Component {
     };
 
     render() {
-        const { inventory, members, employees } = this.state;
+        const { inventory, members, employees, referrer } = this.state;
+        if (referrer) return <Redirect to={referrer} />;
 
         return(
             <>
