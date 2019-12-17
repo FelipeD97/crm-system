@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import loadData from '../../utils/loadData';
 import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
+import {FormControl, FormLabel, TextField, Button, Typography} from '@material-ui/core'
 
 
 class EditMember extends Component {
@@ -8,6 +9,7 @@ class EditMember extends Component {
         members: [],
         id: this.props.match.params.memberid,
         member_name: '',
+        member_email:'',
         phone: '',
         status: '',
         referrer: null
@@ -44,8 +46,8 @@ class EditMember extends Component {
         
           handleSubmit = e => {
             e.preventDefault();
-            const { id, member_name, phone, status } = this.state;
-            const edit = {id, member_name, phone, status}
+            const { id, member_name,member_email, phone, status } = this.state;
+            const edit = {id, member_name,member_email, phone, status}
 
             this.editMember(edit)
             this.setState({referrer: '/members'})
@@ -61,7 +63,7 @@ class EditMember extends Component {
           };
 
     render() { 
-        const { members, member_name, phone, status, referrer } = this.state;
+        const { members, member_name,member_email, phone, status, referrer } = this.state;
         const handle = parseInt(this.props.match.params.memberid);
         if (referrer) return <Redirect to={referrer} />;
         console.log(this.props);
@@ -69,26 +71,30 @@ class EditMember extends Component {
         return ( 
         <>
         <div>
-            <h1>Edit Profile</h1>
-                <form className="theForm" id="theForm">
+            <Typography>Edit Profile</Typography>
+                <FormControl className="theForm" id="theForm">
                 {members.map(m => m.id === handle  ?
                     <ul key={m.id} value={m.id} name={m.id}>
-                        <label>
+                        <FormLabel>
                             Name
-                            <input name="member_name"type="text" value={member_name} placeholder={m.member_name} onChange={this.handleChange} />
-                        </label>
-                        <label>
+                            <TextField  name="member_name"type="text" value={member_name} placeholder={m.member_name} onChange={this.handleChange} />
+                        </FormLabel>
+                        <FormLabel>
+                            Email
+                            <TextField  name="member_email"type="text" value={member_email} placeholder={m.member_email} onChange={this.handleChange} />
+                        </FormLabel>
+                        <FormLabel>
                             Phone Number
-                            <input name="phone"type="tel" value={phone} placeholder={m.phone} onChange={this.handleChange} />
-                        </label>
-                        <label>
+                            <TextField name="phone"type="tel" value={phone} placeholder={m.phone} onChange={this.handleChange} />
+                        </FormLabel>
+                        <FormLabel>
                             Status
-                            <input name="status"type="text" value={status} placeholder={m.status} onChange={this.handleChange} />
-                        </label>
-                    <button onClick={this.handleSubmit} id="submitButton">Update Now</button>
+                            <TextField name="status"type="text" value={status} placeholder={m.status} onChange={this.handleChange} />
+                        </FormLabel>
+                    <Button onClick={this.handleSubmit} id="submitButton">Update Now</Button>
                     </ul>
                 : null)}
-                </form>
+                </FormControl>
         </div> 
         </>
         );
