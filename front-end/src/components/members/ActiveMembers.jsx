@@ -5,7 +5,7 @@ import { Table } from '@material-ui/core';
 import TableBody from '@material-ui/core/TableBody';
 import { TableCell } from '@material-ui/core';
 import { TableHead } from '@material-ui/core';
-import { TableRow } from '@material-ui/core';
+import { TableRow , Typography} from '@material-ui/core';
 import moment from "moment";
 
 class ActiveMembers extends Component {
@@ -29,7 +29,7 @@ async componentDidMount() {
         return(
           <>
             <div className="dashMembers">
-            <h1>Members</h1>
+            <Typography>Members</Typography>
             <form>
             <Table border="1|0">
               <TableHead>
