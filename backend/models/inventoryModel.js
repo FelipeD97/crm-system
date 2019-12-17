@@ -19,10 +19,10 @@ class Inventory {
       }
     }
     static async addInventory(item, cost, photo, stock) {
-      const query = `INSERT INTO inventory ( item, cost, photo, stock) VALUES ('${item}', ${cost}, '${photo}', ${stock})`;
+      const query = `INSERT INTO inventory ( item, cost, photo, stock) VALUES ($1, $2, $3, $4)`;
   
       try {
-        const response = await db.result(query);
+        const response = await db.result(query, [item, cost, photo, stock]);
         return response;
       } catch (err) {
         return err.message;

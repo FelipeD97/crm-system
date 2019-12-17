@@ -75,7 +75,7 @@ class MakeSale extends Component {
 
         return(
             <>
-                <form onSubmit={this.handleSubmit} method="POST">
+                <form onSubmit={this.handleSubmit} method="POST" className="saleContainer">
                     <ItemDropdown inventory={inventory} name="item_id"
                     handleChange={this.handleChange} />
 
@@ -85,6 +85,13 @@ class MakeSale extends Component {
                     
                     <Button color='primary' letiant='contained' type="submit">Make sale</Button>
                 </form>
+                <style jsx>{`
+                    .saleContainer {
+                        display: flex;
+                        justify-content: space-evenly;
+                        padding: 2rem;
+                    }
+                `}</style>
             </>
         )
     }
