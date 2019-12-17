@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DatePicker from "react-datepicker";
 import {Button, FormControl} from '@material-ui/core';
+import { Redirect } from 'react-router-dom';
  
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -9,8 +10,8 @@ class AddItem extends Component {
         item: '',
         cost: '',
         photo: '',
-        stock: ''
-        
+        stock: '',
+        referrer: null
     }
 
     AddItem = async data => {
@@ -37,7 +38,7 @@ class AddItem extends Component {
         const data = this.state;
         console.log(data);
         this.AddItem(data);
-        // this.props.history.push('/');
+        this.setState({referrer: '/inventory'})
       };
 
       handleChange = e => {
@@ -51,7 +52,8 @@ class AddItem extends Component {
     
 
     render() {
-        const { item, cost, photo, stock } = this.state;
+        const { item, cost, photo, stock, referrer } = this.state;
+        if (referrer) return <Redirect to={referrer} />;
         return(
             <div>
             <div>

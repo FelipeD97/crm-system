@@ -4,6 +4,7 @@ import { Button } from '@material-ui/core';
 import ItemDropdown from "../dropdowns/itemDropdown";
 import MemberDropdown from "../dropdowns/memberDropdown";
 import EmployeeDropdown from "../dropdowns/employeeDropdown";
+import { Redirect } from 'react-router-dom';
 
 class MakeSale extends Component {
     state = {
@@ -13,6 +14,8 @@ class MakeSale extends Component {
         item_id: "",
         member_id: "",
         employee_id: "",
+        stock: [],
+        referrer: null,
         date_sold: new Date(),
         stock: []
     }
@@ -57,6 +60,7 @@ class MakeSale extends Component {
         e.preventDefault();
         const data = this.state;
         this.makeSale(data);
+        this.setState({referrer: '/inventory'})
     };
 
     handleChange = e => {
@@ -68,7 +72,8 @@ class MakeSale extends Component {
     };
 
     render() {
-        const { inventory, members, employees } = this.state;
+        const { inventory, members, employees, referrer } = this.state;
+        if (referrer) return <Redirect to={referrer} />;
 
         return(
             <>
