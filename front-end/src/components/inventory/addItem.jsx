@@ -66,6 +66,12 @@ class AddItem extends Component {
                 <Button variant='contained' color='primary' type="submit" onClick={this.handleSubmit}>Submit</Button>
             </FormControl>
             </div>
+        <style jsx>{`
+          .addForm {
+            display: flex;
+            justify-content: space-around;
+          }
+        `}</style>
             </div>
         );
     }

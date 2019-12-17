@@ -12,7 +12,7 @@ class Employee {
   
     static async getEmployee() {
       try {
-        const response = await db.any(`select * from employees ORDERBY employee_name ASC;`);
+        const response = await db.any(`select * from employees ORDER BY employee_name ASC;`);
         return response;
       } catch (err) {
         return err.message;
