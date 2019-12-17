@@ -10,9 +10,6 @@ import {Typography} from '@material-ui/core';
 import moment from "moment";
 
 
-
-
-
 class TransactionHistory extends Component {
     state = {
         sales: []
