@@ -7,6 +7,7 @@ import { TableHead } from '@material-ui/core';
 import { TableRow } from '@material-ui/core';
 import {FormControl} from '@material-ui/core';
 import {Typography} from '@material-ui/core';
+import moment from "moment";
 
 
 
@@ -47,6 +48,9 @@ class TransactionHistory extends Component {
                                 <TableCell>
                                     Employee
                                 </TableCell>
+                                <TableCell>
+                                    Date Sold
+                                </TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -54,8 +58,9 @@ class TransactionHistory extends Component {
                                 <TableRow key={sale.id} value={sale.id} name={sale.id}>
                                     <TableCell>{sale.item}</TableCell>
                                     <TableCell>{sale.cost}</TableCell>
+                                    <TableCell>{sale.member_name}</TableCell>
                                     <TableCell>{sale.name}</TableCell>
-                                    <TableCell>{sale.name}</TableCell>
+                            <TableCell>{moment(sale.date_sold).format("dddd, MMMM Do, YYYY")}</TableCell>
                                 </TableRow>
                             )}
                         </TableBody>

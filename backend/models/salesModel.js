@@ -1,11 +1,12 @@
 const db = require('./conn');
 
 class Sales{
-    constructor(id, item_id, member_id, employee_id) {
+    constructor(id, item_id, member_id, employee_id, date_sold) {
       this.id = id;
       this.item_id = item_id;
       this.member_id = member_id;
       this.employee_id = employee_id;
+      this.date_sold = date_sold
       
     }
   
@@ -22,14 +23,14 @@ class Sales{
       }
     }
 
-    static async addSale(item_id, member_id, employee_id) {
+    static async addSale(item_id, member_id, employee_id, date_sold) {
       const query = 
-        `INSERT INTO sales (item_id, member_id, employee_id)
-        VALUES ($1, $2, $3)
+        `INSERT INTO sales (item_id, member_id, employee_id, date_sold)
+        VALUES ($1, $2, $3, $4)
         `
 
       try {
-        const response = await db.result(query, [item_id, member_id, employee_id]);
+        const response = await db.result(query, [item_id, member_id, employee_id, date_sold]);
 
         return response
       } catch (err) {

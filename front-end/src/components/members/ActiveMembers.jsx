@@ -8,6 +8,7 @@ import { TableHead } from '@material-ui/core';
 import { TableRow } from '@material-ui/core';
 import {FormControl} from '@material-ui/core';
 import {Typography} from '@material-ui/core';
+import moment from "moment";
 
 class ActiveMembers extends Component {
     state = {
@@ -45,6 +46,9 @@ async componentDidMount() {
                     Phone Number
                 </TableCell>
                 <TableCell>
+                    Date Joined
+                </TableCell>
+                <TableCell>
                     Status
                 </TableCell>
               </TableRow>
@@ -56,6 +60,7 @@ async componentDidMount() {
                   <TableCell><Link to={`/memberprofile/${m.id}`}>{m.member_name}</Link></TableCell>
                   <TableCell>{m.member_email}</TableCell>
                   <TableCell>{m.phone}</TableCell>
+                  <TableCell>{moment(m.date_joined).format("dddd, MMMM Do, YYYY")}</TableCell>
                   <TableCell>{m.status}</TableCell>
                   </TableRow>
                   : null)}

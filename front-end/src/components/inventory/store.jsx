@@ -14,11 +14,14 @@ class MakeSale extends Component {
         member_id: "",
         employee_id: "",
         stock: [],
-        referrer: null
+        referrer: null,
+        date_sold: new Date(),
+        stock: []
     }
 
     async componentDidMount() {
-        await this.getInfo()
+        await this.getInfo();
+        await this.convertDate();
         console.log(this.state)
     }
 
@@ -53,21 +56,6 @@ class MakeSale extends Component {
         }
     }
 
-    // updateStock = async () => {
-    //     const value = this.state.item_id;
-    //     const response = await fetch(`http://localhost:3333/inventory/updateInventory`, {
-    //         method: "PUT",
-    //         headers: {
-    //             Accept: "application/json", "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify(value)
-    //     });
-        
-        
-        
-    //     console.log(value);
-    // }
-
     handleSubmit = e => {
         e.preventDefault();
         const data = this.state;
@@ -83,6 +71,23 @@ class MakeSale extends Component {
         });
     };
 
+    convertDate() {
+        let currentDate = new Date();
+        let options = {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+        };
+    
+        new Intl.DateTimeFormat("en-US", options).format(
+            currentDate
+        );
+        this.setState({
+            date_sold: currentDate
+        })
+    }
+
     render() {
         const { inventory, members, employees, referrer } = this.state;
         if (referrer) return <Redirect to={referrer} />;
@@ -91,11 +96,11 @@ class MakeSale extends Component {
             <>
                 <form onSubmit={this.handleSubmit} method="POST">
                     <label>
-                        <ul><Typography>Item</Typography>
+                        <ul>Item
                         {inventory.map(item =>
                             <label key={item.id} value={item.id} name={item.id}>
                                 {item.item}
-                                <Radio name="item_id" value={item.id} onChange={this.handleChange} />
+                                <input type="radio" name="item_id" value={item.id} onChange={this.handleChange} />
                             </label>)}
                         </ul>    
                     </label>
@@ -103,7 +108,7 @@ class MakeSale extends Component {
                         <ul><Typography>Member</Typography>
                         {members.map(member =>
                             <label key={member.id} value={member.id} name={member.id}>
-                                 {member.name}
+                                 {member.member_name}
                                 <Radio  name="member_id" value={member.id} onChange={this.handleChange} />
                             </label>)}
                             </ul>
@@ -117,7 +122,7 @@ class MakeSale extends Component {
                             </label>)}
                             </ul>
                     </label>
-                    <Button color='primary' variant='contained' type="submit">Make sale</Button>
+                    <Button color='primary' letiant='contained' type="submit">Make sale</Button>
                 </form>
             </>
         )
