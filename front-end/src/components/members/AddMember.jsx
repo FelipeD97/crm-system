@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DatePicker from "react-datepicker";
 import {Button, FormControl} from '@material-ui/core';
+import { Redirect } from 'react-router-dom';
  
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -12,6 +13,7 @@ class AddMember extends Component {
         date_joined: new Date(),
         phone: '',
         status: 'active',
+        refferer: null
     }
 
     addMember = async data => {
@@ -35,8 +37,8 @@ class AddMember extends Component {
       handleSubmit = e => {
         e.preventDefault();
         const data = this.state;
-        console.log(data);
         this.addMember(data);
+        this.setState({referrer: '/members'});
         // this.props.history.push('/');
       };
 
@@ -57,7 +59,8 @@ class AddMember extends Component {
     
 
     render() {
-        const { member_name, age, member_email, phone, date_joined } = this.state;
+        const { member_name, age, member_email, phone, date_joined, referrer } = this.state;
+        if (referrer) return <Redirect to={referrer} />;
         return(
             <div>
             <div>

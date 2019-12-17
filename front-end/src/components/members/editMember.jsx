@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import loadData from '../../utils/loadData';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 
 
 class EditMember extends Component {
@@ -10,6 +10,7 @@ class EditMember extends Component {
         member_name: '',
         phone: '',
         status: '',
+        referrer: null
     }
 
     async componentDidMount() {
@@ -47,7 +48,7 @@ class EditMember extends Component {
             const edit = {id, member_name, phone, status}
 
             this.editMember(edit)
-            this.props.history.push('/members')
+            this.setState({referrer: '/members'})
           };
     
           handleChange = e => {
@@ -60,8 +61,9 @@ class EditMember extends Component {
           };
 
     render() { 
-        const { members, member_name, phone, status } = this.state;
+        const { members, member_name, phone, status, referrer } = this.state;
         const handle = parseInt(this.props.match.params.memberid);
+        if (referrer) return <Redirect to={referrer} />;
 
         return ( 
         <>
