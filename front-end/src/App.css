@@ -4,8 +4,9 @@
   background-color: #051D2B;
 }
 
-a{
-  text-decoration: none;
+.dash a{
+  color: inherit;
+  text-decoration: inherit;
 }
 
 
@@ -29,6 +30,8 @@ img {
 
 .Nav svg {
   height: 6rem;
+  box-shadow: 1px 1px 1px black;
+  width: 4rem;
 }
 
 .Members {
@@ -45,7 +48,7 @@ img {
   width: 75%;
   flex-direction: column;
   border: 1px solid black;
-  border-radius: 50px;
+  border-radius: 10px;
   box-shadow: 5px 10px black;
   margin: 5px;
   margin-top: 1rem;
