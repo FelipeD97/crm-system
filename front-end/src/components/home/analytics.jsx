@@ -54,7 +54,7 @@ class Analytics extends Component {
                 
                     <label>
                         <Typography color='purple'>Best Selling Item</Typography>
-                        {sales.map(sale =>
+                        {sales.reduce(sale =>
                          
                             <Typography>{sale.item}</Typography>
                             
