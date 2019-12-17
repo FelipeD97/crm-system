@@ -10,7 +10,7 @@ import {ThemeProvider} from '@material-ui/core/';
 const Signout =()=>{
     return(
    
-        <div>
+        <div className="SignOut">
         <Typography>Home</Typography>
         <Button variant='contained' color='secondary' onClick={()=> firebaseConfig.auth().signOut()}>sign out</Button>
         </div>
