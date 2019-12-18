@@ -15,6 +15,7 @@ import Signout from './components/login/signout';
 import EditMember from './components/members/editMember';
 import TransactionHistory from './components/inventory/transactionHistory';
 import AddItem from './components/inventory/addItem';
+import InventoryList from "./components/inventory/inventoryList";
 
 function App() {
   return (
@@ -34,7 +35,7 @@ function App() {
             <div className="dash">
               <PrivateRoute path='/' exact component={HomeDash} />
               <PrivateRoute path='/members' component={Members} />
-              <PrivateRoute path='/inventory' component={Inventory} />
+              <PrivateRoute path='/inventoryList' component={InventoryList} />
               <PrivateRoute path="/makesale" component={MakeSale} />
               <PrivateRoute path='/memberprofile/:memberid' component={MemberProfile} />
               <PrivateRoute path='/editMember/:memberid' component={EditMember} />

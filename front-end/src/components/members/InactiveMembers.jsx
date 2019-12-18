@@ -27,7 +27,7 @@ async componentDidMount() {
             <div className="dashMembers">
             <h1>Members</h1>
             <form>
-            <Table border="1|0">
+            <Table>
               <TableHead>
               <TableRow>
                 <TableCell>

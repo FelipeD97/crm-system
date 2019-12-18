@@ -38,7 +38,7 @@ class AddItem extends Component {
         const data = this.state;
         console.log(data);
         this.AddItem(data);
-        this.setState({referrer: '/inventory'})
+        this.setState({referrer: '/inventoryList'})
       };
 
       handleChange = e => {
