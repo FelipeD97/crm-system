@@ -16,7 +16,7 @@ router.post("/addsale", async (req, res) => {
   const response = await salesModel.addSale(item_id, member_id, employee_id, date_sold);
   
   if (response.command === "INSERT" && response.rowCount >=1) {
-    res.sendStatus(200, update);
+    res.sendStatus(200, update, response);
   } else {
     res.send(`Please add ${item_id}`)
   }

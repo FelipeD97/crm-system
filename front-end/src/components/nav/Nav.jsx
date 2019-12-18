@@ -22,7 +22,7 @@ function Nav() {
           <Link to='/members'><PeopleAltIcon fontSize='large'/></Link>
         </ListItem>
         <ListItem>
-          <Link to='/inventory'><AttachMoneyIcon fontSize='large' color='secondary'/></Link>
+          <Link to='/inventoryList'><AttachMoneyIcon fontSize='large' color='secondary'/></Link>
         </ListItem>
         <ListItem>
           <Link to='/transaction'><AccountBalanceIcon fontSize='large' /></Link>

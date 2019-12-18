@@ -29,7 +29,7 @@ class TransactionHistory extends Component {
             <>
                 <div className="salesTable">
                     <Typography>Transaction History</Typography>
-                    <Table border="1|0">
+                    <Table >
                         <TableHead>
                             <TableRow>
                                 <TableCell>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import loadData from '../../utils/loadData';
 import { Link } from "react-router-dom";
 import { Table, Button, Typography } from '@material-ui/core';
 import TableBody from '@material-ui/core/TableBody';
@@ -14,35 +13,8 @@ import { StylesContext } from '@material-ui/styles';
 
 
 
-class Inventory extends Component {
-    state = {
-        inventory: [],
-    };
-
-    async componentDidMount() {
-        this.getData();
-    }
-
-    async componentDidUpdate(prevProps, prevState) {
-        if (prevState.inventory !== this.state.inventory) {
-            console.log("component did update, ", prevState.inventory, this.state.inventory)
-            this.getData();
-        }
-    }
-
-    getData = async () => {
-        const data = await loadData(
-            `http://localhost:3333/inventory`
-            ); 
-        
-        this.setState({
-            inventory: data
-        })
-    }
-
-    render() {
-        const { inventory } = this.state;
-
+const Inventory = props => {
+    console.log("props ", props);
         return(
           <>
             <div className="dashInventory">
@@ -67,7 +39,7 @@ class Inventory extends Component {
                 </TableHead>
                 
                 <TableBody>
-                    {inventory.map(i => (
+                    {props.inventory.map(i => (
                     <TableRow key={i.id} value={i.id} name={i.id}>
                     <TableCell>{i.item}</TableCell> 
                     <TableCell>{i.cost}</TableCell> 
@@ -83,7 +55,7 @@ class Inventory extends Component {
                         <Button color='primary' variant='contained'>Make a Sale</Button>
                     </Link>
                     <Link to="/additem">
-                        <Button variant='contained' color='primary' onClick={this.handleClick} value="additem">Add Item</Button>
+                        <Button variant='contained' color='primary' value="additem">Add Item</Button>
                     </Link>
                 </div>
             </div>
@@ -104,6 +76,5 @@ class Inventory extends Component {
             </>
         );
     }
-}
 
 export default Inventory;

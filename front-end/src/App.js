@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import HomeDash from './components/home/DashBoardHome';
-import Nav from './components/nav/Nav';
+import Nav from './components/Nav/Nav';
 import Members from './components/members/members';
 import Inventory from './components/inventory/inventory';
 import MakeSale from "./components/inventory/store";
@@ -17,7 +17,7 @@ import TransactionHistory from './components/inventory/transactionHistory';
 import AddItem from './components/inventory/addItem';
 import Tasks from './components/home/tasks';
 import AddTask from './components/home/addtasks';
-
+import InventoryList from "./components/inventory/inventoryList";
 
 function App() {
   return (
@@ -37,7 +37,7 @@ function App() {
             <div className="dash">
               <PrivateRoute path='/' exact component={HomeDash} />
               <PrivateRoute path='/members' component={Members} />
-              <PrivateRoute path='/inventory' component={Inventory} />
+              <PrivateRoute path='/inventoryList' component={InventoryList} />
               <PrivateRoute path="/makesale" component={MakeSale} />
               <PrivateRoute path='/memberprofile/:memberid' component={MemberProfile} />
               <PrivateRoute path='/editMember/:memberid' component={EditMember} />

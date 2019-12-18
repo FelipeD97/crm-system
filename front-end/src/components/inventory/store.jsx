@@ -21,7 +21,10 @@ class MakeSale extends Component {
 
     async componentDidMount() {
         await this.getInfo();
+        console.log(this.state);
     }
+
+    
 
     getInfo = async () => {
         const inventoryInfo = await loadData(`http://localhost:3333/inventory`);
@@ -54,11 +57,11 @@ class MakeSale extends Component {
         }
     }
 
-    handleSubmit = e => {
+    handleSubmit = async (e) => {
         e.preventDefault();
         const data = this.state;
-        this.makeSale(data);
-        this.setState({referrer: '/inventory'})
+        await this.makeSale(data);
+        this.setState({referrer: '/inventoryList'})
     };
 
     handleChange = e => {
@@ -94,6 +97,7 @@ class MakeSale extends Component {
                 `}</style>
             </>
         )
+        
     }
 }
 
