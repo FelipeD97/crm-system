@@ -34,12 +34,11 @@ class AddMember extends Component {
         }
       };
     
-      handleSubmit = e => {
+      handleSubmit = async (e) => {
         e.preventDefault();
         const data = this.state;
-        this.addMember(data);
+        await this.addMember(data);
         this.setState({referrer: '/members'});
-        // this.props.history.push('/');
       };
 
       handleChange = e => {

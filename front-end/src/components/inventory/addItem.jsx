@@ -33,11 +33,11 @@ class AddItem extends Component {
       };
       
     
-      handleSubmit = e => {
+      handleSubmit = async (e) => {
         e.preventDefault();
         const data = this.state;
         console.log(data);
-        this.AddItem(data);
+        await this.AddItem(data);
         this.setState({referrer: '/inventoryList'})
       };
 

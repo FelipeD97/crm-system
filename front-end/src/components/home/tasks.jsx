@@ -43,7 +43,7 @@ class Tasks extends Component {
                         {tasks.map(task => (
                     <TableRow key={task.id} value={task.id} name={task.id}>
                     <TableCell>{task.task_info}</TableCell> 
-                    <TableCell>{task.employee_id}</TableCell>
+                    <TableCell>{task.employee_name}</TableCell>
                     </TableRow>
                     ))}
                         </TableBody>

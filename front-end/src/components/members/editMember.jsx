@@ -44,13 +44,13 @@ class EditMember extends Component {
             }
           };
         
-          handleSubmit = e => {
+          handleSubmit = async (e) => {
             e.preventDefault();
 
             const { id, member_name, member_email, phone, status } = this.state;
             const edit = {id, member_name, member_email, phone, status}
 
-            this.editMember(edit)
+            await this.editMember(edit)
             this.setState({referrer: '/members'})
           };
     

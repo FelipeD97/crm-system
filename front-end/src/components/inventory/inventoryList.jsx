@@ -19,21 +19,6 @@ class InventoryList extends Component {
             inventory
         })
     }
-
-    // async componentDidUpdate(prevState) {
-    //     if (JSON.stringify(this.state.inventory) != JSON.stringify(prevState.inventory)) {
-    //         const data = await loadData(
-    //             `http://localhost:3333/inventory`
-    //             ); 
-    //         const inventory = data;
-    
-    //         console.log("inventory component did mount data is", data);
-    
-    //         this.setState({
-    //             inventory
-    //         })
-    //     }
-    // }
     
     render() {
         const { inventory } = this.state;
