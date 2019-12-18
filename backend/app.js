@@ -22,7 +22,9 @@ const indexRouter = require('./routes/index'),
  memberRouter = require('./routes/member'),
  inventoryRouter = require('./routes/inventory'),
  salesRouter = require('./routes/sales'),
- cardRouter = require('./routes/cards');
+ cardRouter = require('./routes/cards'),
+ taskRouter = require('./routes/taskroute');
+
 
 
  require('dotenv').config();
@@ -50,6 +52,8 @@ app.use('/', indexRouter);
 app.use('/employee', employeeRouter);
 app.use('/member', memberRouter);
 app.use('/inventory', inventoryRouter);
+app.use('/tasks', taskRouter);
+
 
 
 app.use('/sales', salesRouter);

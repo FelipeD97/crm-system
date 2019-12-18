@@ -9,6 +9,7 @@ class Home extends Component {
         return (
             <div>
             <HomeDash />
+            <Tasks/>
             </div>
         )
     }

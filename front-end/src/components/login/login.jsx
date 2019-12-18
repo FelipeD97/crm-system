@@ -8,7 +8,7 @@ import {Link} from 'react-router-dom'
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import TextField from '@material-ui/core/TextField';
-import { Typography } from '@material-ui/core';
+import { Typography, FormControl, FormLabel } from '@material-ui/core';
 
 
 
@@ -38,7 +38,7 @@ const Login =({history})=>{
     return(
         <div>
             <Typography align='center' variant='h2'color='textPrimary' display='block'>Login</Typography>
-            <form onSubmit={handleLogin}>
+            <form onSubmit={handleLogin} className='loginForm'>
                 <label>Email
                     <TextField color='secondary' name="email" type="email" placeholder="Email"></TextField>
                 </label>
