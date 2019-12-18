@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import loadData from '../../utils/loadData';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import moment from "moment";
-import { Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
+import { Table, TableHead, TableRow, TableCell, TableBody, FormControl, Button, Typography } from '@material-ui/core';
+import { StylesContext } from '@material-ui/styles';
 
 class InactiveMembers extends Component {
     state = {
@@ -24,9 +25,9 @@ async componentDidMount() {
         const { members } = this.state;
         return(
             <>
-            <div className="dashMembers">
-            <h1>Members</h1>
-            <form>
+            <div className="dashInventory">
+            <Typography className="inventoryTitle">Inactive Members</Typography>
+            <FormControl>
             <Table>
               <TableHead>
               <TableRow>
@@ -60,8 +61,22 @@ async componentDidMount() {
                   : null)}
                   </TableBody>
             </Table>
-            </form>
+            </FormControl>
             </div>
+            <style jsx>
+                {`
+                    .buttonContainer {
+                        display: flex;
+                        justify-content: space-around;
+                        padding: 1rem;
+                    }
+                    .inventoryTitle {
+                        display: flex;
+                        justify-content: center;
+                        font: 24px bold;
+                    }
+                `}
+            </style>
             </>
         );
     }

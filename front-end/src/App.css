@@ -2,6 +2,7 @@
 .App {
   display: flex;
   background-color: #051D2B;
+  height: 85vh;
 }
 
 .dash a{
@@ -35,12 +36,12 @@ img {
 }
 
 .Members {
-  padding-top: 2rem;
+  display: flex;
+  padding-bottom: 2rem;
 }
 
 .Members button{
   display: flex;
-  margin-left: 4rem;
 }
 
 .dash {
@@ -72,10 +73,12 @@ img {
 
 .Footer {
   background-color: RGB(45,45,45);
-  margin-top: 0px;
-  padding: 0px;
-  height: 5rem;
-  color: white;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  height: 4rem;
 }
 
 .Footer p{
@@ -88,9 +91,26 @@ img {
   justify-content: flex-end;
 }
 
+.active--inactive {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.addMember {
+  display: flex;
+
+.Button--Container {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+
+.Button--Container button {
+  display: flex;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  
 .titleContainer {
   display: flex;
   justify-content: center;
   margin-top: auto;
-
 }
