@@ -6,9 +6,8 @@ import 'firebase';
 import {AuthContext} from './auth'
 import {Link} from 'react-router-dom'
 import Button from '@material-ui/core/Button';
-import Box from '@material-ui/core/Box';
 import TextField from '@material-ui/core/TextField';
-import { Typography, FormControl, FormLabel } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 
 
 

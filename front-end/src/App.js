@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import HomeDash from './components/home/DashBoardHome';
 import Nav from './components/Nav/Nav';
 import Members from './components/members/members';
-import Inventory from './components/inventory/inventory';
 import MakeSale from "./components/inventory/store";
 import MemberProfile from './components/members/MemberProfile';
 import AuthProvider from './components/login/auth';
@@ -16,7 +15,6 @@ import EditMember from './components/members/editMember';
 import TransactionHistory from './components/inventory/transactionHistory';
 import AddItem from './components/inventory/addItem';
 import Tasks from './components/home/tasks';
-import AddTask from './components/home/addtasks';
 import InventoryList from "./components/inventory/inventoryList";
 
 function App() {
@@ -46,7 +44,6 @@ function App() {
               <Route exact path='/signup' component={SignUp}/>
               <Route exact path='/' component={Login}/>
               <Route exact path='/signout' component={Tasks}/>
-              <Route exact path='/signout' component={AddTask}/>
 
 
             </div>

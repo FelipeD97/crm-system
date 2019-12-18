@@ -13,8 +13,6 @@ class InventoryList extends Component {
             ); 
         const inventory = data;
 
-        console.log("inventory component did mount data is", data);
-
         this.setState({
             inventory
         })

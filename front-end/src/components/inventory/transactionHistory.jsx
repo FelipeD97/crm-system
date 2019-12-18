@@ -1,11 +1,7 @@
 import React, { Component } from "react";
 import { loadData } from "../../utils/loadData";
-import { Table, Button } from '@material-ui/core';
+import { Table, Button, TableCell, TableHead, TableRow, Typography } from '@material-ui/core';
 import TableBody from '@material-ui/core/TableBody';
-import { TableCell } from '@material-ui/core';
-import { TableHead } from '@material-ui/core';
-import { TableRow } from '@material-ui/core';
-import {Typography} from '@material-ui/core';
 import moment from "moment";
 
 
