@@ -4,7 +4,7 @@ import firebaseConfig from '../../config'
 import 'firebase';
 import {Link} from 'react-router-dom'
 import TextField from '@material-ui/core/TextField';
-import { Typography } from '@material-ui/core';
+import { Typography, FormControl, Button, FormLabel } from '@material-ui/core';
 
 
 const SignUp=({history})=>{
@@ -23,18 +23,19 @@ const SignUp=({history})=>{
 
 return(
     <div>
-        <Typography varian='h1'>SignUp</Typography>
-        <form onSubmit={handleSignUp}>
-            <label>
+        <form className='signupForm'onSubmit={handleSignUp}>
+        <Typography variant='h2'>Sign Up</Typography>
+
+            <FormLabel>
                 Email
-                <input name="email" type="email" placeholder="Email"/>
-            </label>
-            <label>
+                <TextField name="email" type="email" placeholder="Email"/>
+            </FormLabel>
+            <FormLabel>
                 Password
-                <input name="password" type="password" placeholder="Password"/>
-            </label>
-            <button type='submit'>Sign Up</button>
-            <h1>Already have an account? </h1><Link exact to='/'><button>Login</button></Link>
+                <TextField name="password" type="password" placeholder="Password"/>
+            </FormLabel>
+            <Button type='submit' variant='contained' color='secondary'>Sign Up</Button>
+            <Typography>Already have an account? </Typography><Link exact to='/'><Button variant='contained' color='secondary'>Login</Button></Link>
 
         </form>
     </div>

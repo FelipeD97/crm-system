@@ -118,3 +118,9 @@ img {
   justify-content: center;
   margin-top: auto;
 }
+.loginForm{
+  text-align: center;
+}
+.signupForm{
+  text-align: center;
+}
