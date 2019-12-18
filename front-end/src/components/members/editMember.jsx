@@ -86,22 +86,22 @@ class EditMember extends Component {
                         <FormLabel>
                             Name
                             <input name="member_name"type="text" value={member_name} placeholder={m.member_name} onChange={this.handleChange} />
-                        </label>
-                        <label>
+                        </FormLabel>
+                        <FormLabel>
                           Email
                           <input name="member_email" type="email" value={member_email} placeholder={m.member_email} onChange={this.handleChange} />
-                        </label>
-                        <label>
+                        </FormLabel>
+                        <FormLabel>
                             Phone Number
                             <input name="phone"type="tel" value={phone} placeholder={m.phone} onChange={this.handleChange} />
-                        </label>
-                        <label>
+                        </FormLabel>
+                        <FormLabel>
                           Status
                           <select onChange={this.handleSelectChange}>
                             <option value={status} name={status} value="active">Active</option>
                             <option value={status} name={status} value="inactive">Inactive</option>
                           </select>
-                        </label>
+                        </FormLabel>
                     <button onClick={this.handleSubmit} id="submitButton">Update Now</button>
                     </ul>
                 : null)}

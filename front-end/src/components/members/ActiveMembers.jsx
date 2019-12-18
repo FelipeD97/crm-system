@@ -8,7 +8,6 @@ import { TableHead } from '@material-ui/core';
 import { TableRow } from '@material-ui/core';
 import {FormControl} from '@material-ui/core';
 import { StylesContext } from '@material-ui/styles';
-import { TableRow , Typography} from '@material-ui/core';
 import moment from "moment";
 
 class ActiveMembers extends Component {
