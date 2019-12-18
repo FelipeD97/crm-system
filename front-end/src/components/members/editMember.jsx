@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import loadData from '../../utils/loadData';
 import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
+import {FormControl, FormLabel, TextField, Button, Typography} from '@material-ui/core'
 
 
 class EditMember extends Component {
@@ -45,6 +46,7 @@ class EditMember extends Component {
         
           handleSubmit = e => {
             e.preventDefault();
+
             const { id, member_name, member_email, phone, status } = this.state;
             const edit = {id, member_name, member_email, phone, status}
 
@@ -78,11 +80,11 @@ class EditMember extends Component {
         return ( 
         <>
         <div>
-            <h1>Edit Profile</h1>
-                <form className="theForm" id="theForm">
+            <Typography>Edit Profile</Typography>
+                <FormControl className="theForm" id="theForm">
                 {members.map(m => m.id === handle  ?
                     <ul key={m.id} value={m.id} name={m.id}>
-                        <label>
+                        <FormLabel>
                             Name
                             <input name="member_name"type="text" value={member_name} placeholder={m.member_name} onChange={this.handleChange} />
                         </label>
@@ -104,7 +106,7 @@ class EditMember extends Component {
                     <button onClick={this.handleSubmit} id="submitButton">Update Now</button>
                     </ul>
                 : null)}
-                </form>
+                </FormControl>
         </div> 
         </>
         );
