@@ -13,7 +13,7 @@ class AddTask extends Component {
     }
 
     AddTask = async data => {
-        const response = await fetch("http://localhost:3333/tasks/addtasks", {
+        const response = await fetch("http://localhost:3333/tasks/addtask", {
           method: "POST",
           headers: {
             Accept: "application/json",

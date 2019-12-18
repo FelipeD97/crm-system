@@ -16,7 +16,7 @@ import EditMember from './components/members/editMember';
 import TransactionHistory from './components/inventory/transactionHistory';
 import AddItem from './components/inventory/addItem';
 import Tasks from './components/home/tasks';
-import Addtask from './components/home/addtasks';
+import AddTask from './components/home/addtasks';
 
 
 function App() {
@@ -46,7 +46,7 @@ function App() {
               <Route exact path='/signup' component={SignUp}/>
               <Route exact path='/' component={Login}/>
               <Route exact path='/signout' component={Tasks}/>
-              <Route exact path='/signout' component={Addtask}/>
+              <Route exact path='/signout' component={AddTask}/>
 
 
             </div>
