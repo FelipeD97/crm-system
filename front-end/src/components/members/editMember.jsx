@@ -8,6 +8,7 @@ class EditMember extends Component {
         members: [],
         id: this.props.match.params.memberid,
         member_name: '',
+        member_email: '',
         phone: '',
         status: '',
         referrer: null
@@ -44,8 +45,8 @@ class EditMember extends Component {
         
           handleSubmit = e => {
             e.preventDefault();
-            const { id, member_name, phone, status } = this.state;
-            const edit = {id, member_name, phone, status}
+            const { id, member_name, member_email, phone, status } = this.state;
+            const edit = {id, member_name, member_email, phone, status}
 
             this.editMember(edit)
             this.setState({referrer: '/members'})
@@ -60,8 +61,16 @@ class EditMember extends Component {
             });
           };
 
+          handleSelectChange = e => {
+            const { value } = e.target;
+
+            this.setState({
+              status: value,
+            })
+          }
+
     render() { 
-        const { members, member_name, phone, status, referrer } = this.state;
+        const { members, member_name, member_email, phone, status, referrer } = this.state;
         const handle = parseInt(this.props.match.params.memberid);
         if (referrer) return <Redirect to={referrer} />;
         console.log(this.props);
@@ -78,12 +87,19 @@ class EditMember extends Component {
                             <input name="member_name"type="text" value={member_name} placeholder={m.member_name} onChange={this.handleChange} />
                         </label>
                         <label>
+                          Email
+                          <input name="member_email" type="email" value={member_email} placeholder={m.member_email} onChange={this.handleChange} />
+                        </label>
+                        <label>
                             Phone Number
                             <input name="phone"type="tel" value={phone} placeholder={m.phone} onChange={this.handleChange} />
                         </label>
                         <label>
-                            Status
-                            <input name="status"type="text" value={status} placeholder={m.status} onChange={this.handleChange} />
+                          Status
+                          <select onChange={this.handleSelectChange}>
+                            <option value={status} name={status} value="active">Active</option>
+                            <option value={status} name={status} value="inactive">Inactive</option>
+                          </select>
                         </label>
                     <button onClick={this.handleSubmit} id="submitButton">Update Now</button>
                     </ul>

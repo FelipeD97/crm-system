@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import loadData from '../../utils/loadData';
 import { BrowserRouter as Route, Link } from "react-router-dom";
-import { Table } from '@material-ui/core';
+import { Table, Button, Typography } from '@material-ui/core';
 import TableBody from '@material-ui/core/TableBody';
 import { TableCell } from '@material-ui/core';
 import { TableHead } from '@material-ui/core';
 import { TableRow } from '@material-ui/core';
+import {FormControl} from '@material-ui/core';
+import { StylesContext } from '@material-ui/styles';
 import moment from "moment";
 
 class ActiveMembers extends Component {
@@ -28,10 +30,10 @@ async componentDidMount() {
         const { members } = this.state;
         return(
           <>
-            <div className="dashMembers">
-            <h1>Members</h1>
-            <form>
-            <Table border="1|0">
+            <div className="dashInventory">
+            <Typography className="inventoryTitle">Active Members</Typography>
+            <FormControl>
+            <Table>
               <TableHead>
               <TableRow>
                 <TableCell>
@@ -64,8 +66,22 @@ async componentDidMount() {
                   : null)}
                   </TableBody>
             </Table>
-            </form>
+            </FormControl>
             </div>
+            <style jsx>
+                {`
+                    .buttonContainer {
+                        display: flex;
+                        justify-content: space-around;
+                        padding: 1rem;
+                    }
+                    .inventoryTitle {
+                        display: flex;
+                        justify-content: center;
+                        font: 24px bold;
+                    }
+                `}
+            </style>
             </>
         );
     }
