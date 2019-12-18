@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import DatePicker from "react-datepicker";
-import {Button, FormControl} from '@material-ui/core';
 import { Redirect } from 'react-router-dom';
+import {Button, FormControl, TextField, FormLabel} from '@material-ui/core';
  
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -62,15 +62,12 @@ class AddMember extends Component {
         const { member_name, age, member_email, phone, date_joined, referrer } = this.state;
         if (referrer) return <Redirect to={referrer} />;
         return(
-            <div>
-            <div>
-            <FormControl className="addForm" onSubmit={this.handleSubmit} method="POST">
-                <label>
-                    Name
-                    <input type="text" placeholder="name" value={member_name} name="member_name" onChange={this.handleChange}></input>
-                </label>
-                <label>
-                    Date Of Birth
+            <FormControl onSubmit={this.handleSubmit} method="POST">
+              <div className="addForm">
+                
+                    <TextField  id="standard-basic" label="Name" type="text" placeholder="name" value={member_name} name="member_name" onChange={this.handleChange}></TextField>
+              <label>
+                Date Of Birth
                 <DatePicker
                     selected={age}
                     onChange={this.handleDateChange}
@@ -80,14 +77,11 @@ class AddMember extends Component {
                     scrollableYearDropdown
                 />
                 </label>
-                <label>
-                    Email
-                    <input type="email" placeholder="Email" value={member_email} name="member_email" onChange={this.handleChange}></input>
-                </label>
-                <label>
-                    Phone
-                    <input type="tel" placeholder="Phone" value={phone} name="phone" onChange={this.handleChange}></input>
-                </label>
+
+                <TextField id="standard-basic" label="Email" type="email" placeholder="Email" value={member_email} name="member_email" onChange={this.handleChange}>
+                </TextField>
+
+                  <TextField id="standard-basic" label="Phone" type="tel" placeholder="Phone" value={phone} name="phone" onChange={this.handleChange}></TextField>
                 <label>
                     Date Joined
                 <DatePicker
@@ -100,9 +94,10 @@ class AddMember extends Component {
                 />
                 </label>
                 <Button variant='contained' color='primary' type="submit" onClick={this.handleSubmit}>Submit</Button>
+                </div>
             </FormControl>
-            </div>
-            </div>
+
+// {/* <TextField id="standard-basic" label="Stock" type="number" placeholder="stock" value={stock} name="stock" onChange={this.handleChange}/> */}
         );
     }
 }
