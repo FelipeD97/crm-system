@@ -2,10 +2,12 @@
 .App {
   display: flex;
   background-color: #051D2B;
+  height: 85vh;
 }
 
-a{
-  text-decoration: none;
+.dash a{
+  color: inherit;
+  text-decoration: inherit;
 }
 
 
@@ -29,15 +31,17 @@ img {
 
 .Nav svg {
   height: 6rem;
+  box-shadow: 1px 1px 1px black;
+  width: 4rem;
 }
 
 .Members {
-  padding-top: 2rem;
+  display: flex;
+  padding-bottom: 2rem;
 }
 
 .Members button{
   display: flex;
-  margin-left: 4rem;
 }
 
 .dash {
@@ -45,7 +49,7 @@ img {
   width: 75%;
   flex-direction: column;
   border: 1px solid black;
-  border-radius: 50px;
+  border-radius: 10px;
   box-shadow: 5px 10px black;
   margin: 5px;
   margin-top: 1rem;
@@ -69,10 +73,12 @@ img {
 
 .Footer {
   background-color: RGB(45,45,45);
-  margin-top: 0px;
-  padding: 0px;
-  height: 5rem;
-  color: white;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  height: 4rem;
 }
 
 .Footer p{
@@ -85,11 +91,28 @@ img {
   justify-content: flex-end;
 }
 
+.active--inactive {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.addMember {
+  display: flex;
+
+.Button--Container {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+
+.Button--Container button {
+  display: flex;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  
 .titleContainer {
   display: flex;
   justify-content: center;
   margin-top: auto;
-
 }
 .loginForm{
   text-align: center;

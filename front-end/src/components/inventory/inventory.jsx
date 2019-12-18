@@ -16,17 +16,27 @@ import { StylesContext } from '@material-ui/styles';
 
 class Inventory extends Component {
     state = {
-        inventory: []
-};
+        inventory: [],
+    };
 
     async componentDidMount() {
+        this.getData();
+    }
+
+    async componentDidUpdate(prevProps, prevState) {
+        if (prevState.inventory !== this.state.inventory) {
+            console.log("component did update, ", prevState.inventory, this.state.inventory)
+            this.getData();
+        }
+    }
+
+    getData = async () => {
         const data = await loadData(
             `http://localhost:3333/inventory`
             ); 
-        const inventory = data;
-
+        
         this.setState({
-            inventory
+            inventory: data
         })
     }
 
