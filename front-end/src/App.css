@@ -124,3 +124,26 @@ img {
 .signupForm{
   text-align: center;
 }
+
+.addMemberForm {
+  display: flex;
+  justify-content: center;
+}
+
+.addForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.addForm label{
+    float: left;
+    text-align: left;
+    margin-right: 15px;
+    width: 100px;
+  }
+
+  textarea:focus, input:focus {
+    border: 2px solid #900;
+  }
