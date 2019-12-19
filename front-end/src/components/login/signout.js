@@ -20,8 +20,7 @@ const Signout =()=>{
 
     return(
    
-        <div className="SignOut">
-          <h1>CRM</h1>
+        <div className="Header">
             <div className={classes.root}>
                 <Badge badgeContent={4} color="primary">
                     <MailIcon />

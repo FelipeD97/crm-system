@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { loadData } from "../../utils/loadData";
-import { Table, Button, TableCell, TableHead, TableRow, Typography } from '@material-ui/core';
+import { Table, Button, TableCell, TableHead, TableRow, Typography, Paper } from '@material-ui/core';
 import TableBody from '@material-ui/core/TableBody';
 import moment from "moment";
 
@@ -23,8 +23,10 @@ class TransactionHistory extends Component {
         const { sales } = this.state;
         return (
             <>
-                <div className="salesTable">
-                    <Typography>Transaction History</Typography>
+                <div className="dashInventory">
+                    <Paper className="Paper">
+                    <Typography className="inventoryTitle">Transaction History</Typography>
+                    </Paper>
                     <Table >
                         <TableHead>
                             <TableRow>
@@ -58,6 +60,22 @@ class TransactionHistory extends Component {
                         </TableBody>
                     </Table>
                 </div>
+                <style jsx>
+                {`
+                    .inventoryTitle {
+                        display: flex;
+                        justify-content: center;
+                        font: 24px bold;
+                        font-weight: bold;
+                        text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+                        0px 8px 13px rgba(0,0,0,0.1),
+                        0px 18px 23px rgba(0,0,0,0.1);
+                    }
+                    .Paper {
+                      background-color: grey;
+                    }
+                `}
+            </style>
             </>
         )
     }

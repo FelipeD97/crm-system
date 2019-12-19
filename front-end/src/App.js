@@ -16,6 +16,9 @@ import TransactionHistory from './components/inventory/transactionHistory';
 import AddItem from './components/inventory/addItem';
 import Tasks from './components/home/tasks';
 import InventoryList from "./components/inventory/inventoryList";
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+import Kuzushi from './images/Kuzushi.png';
 
 function App() {
   return (
@@ -23,7 +26,10 @@ function App() {
     <AuthProvider>
       <Router>
         <div className="Header">
-          <PrivateRoute path='/' component={Signout}/>
+        <img src={Kuzushi}></img>
+        <h1>Kuzushi Club</h1>
+        <PrivateRoute path='/' component={Signout}/>
+          
         </div>
       <div className="App">
           <div className="Nav">
@@ -47,8 +53,11 @@ function App() {
           </div>
         </Router>
       </AuthProvider>
-      <div className="Footer">
-        <p>Footer</p>
+      <div className="Footer--Container">
+        <div className="Footer--Content">
+        <MailOutlineIcon />
+        <HelpOutlineIcon />
+        </div>
       </div>
       </>
   );
