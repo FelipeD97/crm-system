@@ -8,7 +8,6 @@ class AddItem extends Component {
     state = {
         item: '',
         cost: '',
-        photo: '',
         stock: '',
         referrer: null
     }
@@ -60,7 +59,6 @@ class AddItem extends Component {
                     
                     <TextField id="standard-basic" label="Item" type="text" placeholder="item" value={item} name="item" onChange={this.handleChange}/>
                     <TextField id="standard-basic" label="Cost" type="text" placeholder="cost" value={cost} name="cost" onChange={this.handleChange}/>
-                    <TextField id="standard-basic" label="Photo" type="file" placeholder="photo" value={photo} name="photo" onChange={this.handleChange}/>
                     <TextField id="standard-basic" label="Stock" type="number" placeholder="stock" value={stock} name="stock" onChange={this.handleChange}/>
                 <Button variant='contained' color='primary' type="submit" onClick={this.handleSubmit}>Submit</Button>
             </FormControl>
