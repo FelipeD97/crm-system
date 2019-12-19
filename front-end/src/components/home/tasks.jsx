@@ -28,7 +28,7 @@ class Tasks extends Component {
             <>
                 <div className="salesTable">
                     <Typography>Tasks</Typography>
-                    <Table border="1|0">
+                    <Table>
                         <TableHead>
                             <TableRow>
                                 <TableCell>

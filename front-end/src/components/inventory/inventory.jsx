@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from "react-router-dom";
 import { Table, Button, Typography } from '@material-ui/core';
 import TableBody from '@material-ui/core/TableBody';
@@ -6,15 +6,9 @@ import { TableCell } from '@material-ui/core';
 import { TableHead } from '@material-ui/core';
 import { TableRow, Paper } from '@material-ui/core';
 import {FormControl} from '@material-ui/core';
-import { StylesContext } from '@material-ui/styles';
-
-
-
-
-
 
 const Inventory = props => {
-    console.log("props ", props);
+
         return(
           <>
             <div className="dashInventory">
@@ -31,7 +25,6 @@ const Inventory = props => {
                     <TableCell>
                         Cost
                     </TableCell>
-                    
                     <TableCell>
                         Stock
                     </TableCell>
@@ -42,8 +35,7 @@ const Inventory = props => {
                     {props.inventory.map(i => (
                     <TableRow key={i.id} value={i.id} name={i.id}>
                     <TableCell>{i.item}</TableCell> 
-                    <TableCell>{i.cost}</TableCell> 
-                    
+                    <TableCell>{i.cost}</TableCell>
                     <TableCell>{i.stock}</TableCell>
                     </TableRow>
                     ))}

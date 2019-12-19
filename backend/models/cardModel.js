@@ -1,5 +1,4 @@
-const db = require('./conn'),
-bcrypt = require("bcryptjs");
+const db = require('./conn');
 
 class Card {
     constructor(id, full_name, card_number, cvv, member_id) {

@@ -6,7 +6,6 @@ import 'firebase';
 import {AuthContext} from './auth'
 import {Link} from 'react-router-dom'
 import Button from '@material-ui/core/Button';
-import Box from '@material-ui/core/Box';
 import TextField from '@material-ui/core/TextField';
 import { Typography, FormControl, FormLabel, InputAdornment, InputLabel, Input} from '@material-ui/core';
 import AccountCircle from '@material-ui/icons/AccountCircle';

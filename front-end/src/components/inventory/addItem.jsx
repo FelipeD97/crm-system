@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import DatePicker from "react-datepicker";
-import {Button, FormControl, TextField, FormLabel} from '@material-ui/core';
+import {Button, FormControl, TextField} from '@material-ui/core';
 import { Redirect } from 'react-router-dom';
  
 import "react-datepicker/dist/react-datepicker.css";
