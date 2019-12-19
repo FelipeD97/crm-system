@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import loadData from '../../utils/loadData';
 import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
-import {FormControl, Paper, TextField, Button, Typography, Select, MenuItem, InputLabel} from '@material-ui/core'
+import {FormControl, Paper, TextField, Button, Typography, Select, MenuItem, InputLabel} from '@material-ui/core';
+import Avatar from '../../images/boy.svg';
 
 
 class EditMember extends Component {
@@ -121,6 +122,7 @@ class EditMember extends Component {
             .Paper {
               background-color: grey;
             }
+
         `}
     </style>
     </>

@@ -77,6 +77,7 @@ img {
                 0px 18px 23px rgba(0,0,0,0.1);
 }
 
+
 .Header img {
   margin-left: 3rem;
 }
@@ -183,4 +184,15 @@ input {
   flex-direction: column;
   justify-content: center;
   text-align: center;
+}
+
+.MemberProfile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.MemberProfile button{
+  width: 100%;
 }

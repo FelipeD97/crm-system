@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import loadData from '../../utils/loadData';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import moment from "moment";
-import {Button} from "@material-ui/core"
+import { Button } from "@material-ui/core"
+import Avatar from '../../images/boy.svg';
 
 class MemberProfile extends Component {
     state = {
@@ -31,8 +32,9 @@ class MemberProfile extends Component {
 
         return ( 
 
-        <div>
+        <div className="MemberProfile">
             <h1>Member Profile</h1>
+            <img src={Avatar}></img>
                 {members.map(m => m.id === handle  ?
                     <ul key={m.id} value={m.id} name={m.id}>
                         <li><b>Name:</b> {m.member_name}</li>
