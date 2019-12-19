@@ -153,3 +153,17 @@ img {
 input {
   background: none;
 }
+
+.editForm {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.addFormList ul{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}

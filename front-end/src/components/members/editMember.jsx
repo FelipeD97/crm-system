@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import loadData from '../../utils/loadData';
 import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
-import {FormControl, FormLabel, TextField, Button, Typography} from '@material-ui/core'
+import {FormControl, Paper, TextField, Button, Typography, Select, MenuItem} from '@material-ui/core'
 
 
 class EditMember extends Component {
@@ -78,36 +78,50 @@ class EditMember extends Component {
 
         return ( 
         <>
-        <div>
-            <Typography>Edit Profile</Typography>
-                <FormControl className="theForm" id="theForm">
+        
+            <Paper className="Paper">
+            <Typography className="inventoryTitle">Edit Profile</Typography>
+            </Paper>
+                <FormControl>
+                <div className="addFormList">
                 {members.map(m => m.id === handle  ?
                     <ul key={m.id} value={m.id} name={m.id}>
-                        <FormLabel>
-                            Name
-                            <input name="member_name"type="text" value={member_name} placeholder={m.member_name} onChange={this.handleChange} />
-                        </FormLabel>
-                        <FormLabel>
-                          Email
-                          <input name="member_email" type="email" value={member_email} placeholder={m.member_email} onChange={this.handleChange} />
-                        </FormLabel>
-                        <FormLabel>
-                            Phone Number
-                            <input name="phone"type="tel" value={phone} placeholder={m.phone} onChange={this.handleChange} />
-                        </FormLabel>
-                        <FormLabel>
-                          Status
-                          <select onChange={this.handleSelectChange}>
-                            <option value={status} name={status} value="active">Active</option>
-                            <option value={status} name={status} value="inactive">Inactive</option>
-                          </select>
-                        </FormLabel>
-                    <button onClick={this.handleSubmit} id="submitButton">Update Now</button>
+                        
+                            <TextField label="Name" name="member_name"type="text" value={member_name} placeholder={m.member_name} onChange={this.handleChange} />
+                        
+                          <TextField  label="Email" name="member_email" type="email" value={member_email} placeholder={m.member_email} onChange={this.handleChange} />
+                        
+                            <TextField label="Phone Number" name="phone"type="tel" value={phone} placeholder={m.phone} onChange={this.handleChange} />
+                        
+                        
+                          <Select label="Status" onChange={this.handleSelectChange}>
+                            <MenuItem value={status} name={status} value="active">Active</MenuItem>
+                            <MenuItem value={status} name={status} value="inactive">Inactive</MenuItem>
+                          </Select>
+                        
+                    <Button variant='contained' color='primary' type="submit" onClick={this.handleSubmit}>Update Now</Button>
                     </ul>
                 : null)}
+                </div>
                 </FormControl>
-        </div> 
-        </>
+        
+        <style jsx>
+        {`
+            .inventoryTitle {
+                display: flex;
+                justify-content: center;
+                font: 24px bold;
+                font-weight: bold;
+                text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+                0px 8px 13px rgba(0,0,0,0.1),
+                0px 18px 23px rgba(0,0,0,0.1);
+            }
+            .Paper {
+              background-color: grey;
+            }
+        `}
+    </style>
+    </>
         );
     }
 }
