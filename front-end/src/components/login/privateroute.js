@@ -1,6 +1,4 @@
 import React, { useContext } from 'react';
-import firebase from 'firebase';
-import firebaseConfig from '../../config'
 import 'firebase';
 import {AuthContext} from './auth'
 import {Route, Redirect} from 'react-router-dom';
