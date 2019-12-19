@@ -27,7 +27,7 @@ function App() {
       <Router>
         <div className="Header">
         <img src={Kuzushi}></img>
-        <h1>Kuzushi Club</h1>
+        <h1>Kuzushi Solutions</h1>
         <PrivateRoute path='/' component={Signout}/>
           
         </div>
