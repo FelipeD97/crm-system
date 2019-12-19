@@ -65,25 +65,43 @@ img {
 }
 
 .Header {
+  display: flex;
+  justify-content: flex-end;
   width: 100%;
   height: 6rem;
   background-color: RGB(45,45,45);
   align-items: center;
+  margin-right: 3rem;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+                0px 8px 13px rgba(0,0,0,0.1),
+                0px 18px 23px rgba(0,0,0,0.1);
 }
 
-.Footer {
+
+.Header img {
+  margin-left: 3rem;
+}
+
+.Footer--Container {
   background-color: RGB(45,45,45);
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  text-align: center;
   height: 4rem;
 }
 
-.Footer p{
-  margin: 0;
+.Footer--Content {
+  height: 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 4rem;
 }
+.Footer--Content svg{
+  font-size: 3rem;
+}
+
 
 .SignOut {
   display: flex;
@@ -118,10 +136,16 @@ img {
   justify-content: center;
   margin-top: auto;
 }
-.loginForm{
+.loginForm {
+  display: flex;
+  flex-direction: column;
   text-align: center;
-}
-.signupForm{
+  justify-content: center;
+  align-items: center;
+} */
+
+.loginForm button {
+  width: 10%;
   text-align: center;
 }
 
@@ -144,6 +168,31 @@ img {
     width: 100px;
   }
 
-  textarea:focus, input:focus {
-    border: 2px solid #900;
-  }
+input {
+  background: none;
+}
+
+.editForm {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.addFormList ul{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.MemberProfile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.MemberProfile button{
+  width: 100%;
+}

@@ -4,7 +4,9 @@ import firebaseConfig from '../../config'
 import 'firebase';
 import {Link} from 'react-router-dom'
 import TextField from '@material-ui/core/TextField';
-import { Typography, FormControl, Button, FormLabel } from '@material-ui/core';
+import { Typography, FormControl, FormLabel, InputAdornment, Button } from '@material-ui/core';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
 
 const SignUp=({history})=>{
@@ -23,17 +25,43 @@ const SignUp=({history})=>{
 
 return(
     <div>
-        <form className='signupForm'onSubmit={handleSignUp}>
+        <form 
+            className='loginForm'
+            onSubmit={handleSignUp}>
         <Typography variant='h2'>Sign Up</Typography>
 
-            <FormLabel>
-                Email
-                <TextField name="email" type="email" placeholder="Email"/>
-            </FormLabel>
-            <FormLabel>
-                Password
-                <TextField name="password" type="password" placeholder="Password"/>
-            </FormLabel>
+        <FormControl>
+        <TextField
+                name="email"
+                id="input-with-icon-textfield"
+                label="Email"
+                type="email"
+                InputProps={{
+                startAdornment: (
+                    <InputAdornment position="start">
+                    <AccountCircle />                        
+                    </InputAdornment>
+                ),
+            }}
+            />
+            </FormControl>
+
+                <FormControl>
+                    <TextField
+                        name="password"
+                        id="input-with-icon-textfield"
+                        label="Password"
+                        type="password"
+                        InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                            <VisibilityOff />
+                            </InputAdornment>
+                        ),
+                        }}
+                    />
+                </FormControl>
+
             <Button type='submit' variant='contained' color='secondary'>Sign Up</Button>
             <Typography>Already have an account? </Typography><Link exact to='/'><Button variant='contained' color='secondary'>Login</Button></Link>
 
