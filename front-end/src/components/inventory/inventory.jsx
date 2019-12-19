@@ -24,9 +24,6 @@ const Inventory = props => {
                         Cost
                     </TableCell>
                     <TableCell>
-                        Photo
-                    </TableCell>
-                    <TableCell>
                         Stock
                     </TableCell>
                 </TableRow>
@@ -37,7 +34,6 @@ const Inventory = props => {
                     <TableRow key={i.id} value={i.id} name={i.id}>
                     <TableCell>{i.item}</TableCell> 
                     <TableCell>{i.cost}</TableCell> 
-                    <TableCell>{i.photo}</TableCell>
                     <TableCell>{i.stock}</TableCell>
                     </TableRow>
                     ))}

@@ -23,9 +23,6 @@ function App() {
     <AuthProvider>
       <Router>
         <div className="Header">
-          <div className="titleContainer">
-            CRM
-          </div>
           <PrivateRoute path='/' component={Signout}/>
         </div>
       <div className="App">
