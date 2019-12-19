@@ -24,13 +24,14 @@ Kuzushi Solutions is an application that serves as a template database system fo
 
 ## Work Flow
 
+
 Everyone worked together to complete this project, however each team member had their own feature that they focused on.
 
-* Felipe Dunbar: Built the sales feature for the application. This consisted of allowing the employee to sell a product to a member, add an item to the inventory, and list the sales history. Styled the templates for the forms.
+* Felipe Dunbar: Built the sales feature for the application. This consisted of allowing the employee to sell a product to a member, add an item to the inventory, and list the sales history. Styled the templates for the forms. Wrote data Tables in Postgres. Set up models in the back end, and built get and post routes in the express backend. 
 
-* Joseph Fitzpatrick: Built the members feature for the application. This involved listing the members, adding a member, and updating a member's information. Created the base styling template for the application.
+* Joseph Fitzpatrick: Built the members feature for the application. This involved listing the members, adding a member, and updating a member's information. Created the base styling template for the application. Set up models in the back end, and set up post, get, and put routes in the express backend. 
 
-* Alazar Abraham: Built the login function using firebase. Firebase was used to store employee login information and authenticated employee logins. Introduced Material UI components and designed the tables.
+* Alazar Markos: Built the login function using firebase. Firebase was used to store employee login information and authenticated employee logins. Introduced Material UI components and designed the tables. Used private routing to restrict access without authentication. Set up models in the back end and built get and post routes in the express backend. 
 
 * Tasks for each day were determined at the start of the day to keep the team on track towards the "MVP".
 
