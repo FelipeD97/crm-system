@@ -65,25 +65,39 @@ img {
 }
 
 .Header {
+  display: flex;
+  justify-content: flex-end;
   width: 100%;
   height: 6rem;
   background-color: RGB(45,45,45);
   align-items: center;
+  margin-right: 3rem;
 }
 
-.Footer {
+.Header img {
+  margin-left: 3rem;
+}
+
+.Footer--Container {
   background-color: RGB(45,45,45);
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  text-align: center;
   height: 4rem;
 }
 
-.Footer p{
-  margin: 0;
+.Footer--Content {
+  height: 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 4rem;
 }
+.Footer--Content svg{
+  font-size: 3rem;
+}
+
 
 .SignOut {
   display: flex;
