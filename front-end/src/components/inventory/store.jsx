@@ -50,10 +50,10 @@ class MakeSale extends Component {
         });
         const reply = await response;
         if (reply.status === 200) {
-            alert("Sale Made!");
+            return reply;
         }
         if(reply.status !== 200) {
-            alert("Sale not Made");
+            return reply;
         }
     }
 
