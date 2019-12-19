@@ -10,16 +10,15 @@ Kuzushi Solutions is an application that serves as a template database system fo
 
 1. React
 * Served as the client side. Used asynchronous components to create an interactive UI and render data.
-2. Express
+2. Node.js (Express)
 * Served as the server side. Used to create a RESTful API for client side to render.
-3. Node.js
-4. PostgreSQL
+3. PostgreSQL
 * Served as the database for all of the web application data.
-5. Firbase
+4. Firbase
 * Used to store and authenitcate user login information.
-6. Material UI
+5. Material UI
 * A CSS library used to build CSS components.
-7. GitHub
+6. GitHub
 * Used as a way to manage work flow and tasks for the project.
 
 ## Features 
