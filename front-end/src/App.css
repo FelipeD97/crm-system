@@ -118,10 +118,16 @@ img {
   justify-content: center;
   margin-top: auto;
 }
-.loginForm{
+.loginForm {
+  display: flex;
+  flex-direction: column;
   text-align: center;
-}
-.signupForm{
+  justify-content: center;
+  align-items: center;
+} */
+
+.loginForm button {
+  width: 10%;
   text-align: center;
 }
 
@@ -144,6 +150,6 @@ img {
     width: 100px;
   }
 
-  textarea:focus, input:focus {
-    border: 2px solid #900;
-  }
+input {
+  background: none;
+}

@@ -27,8 +27,8 @@ class TransactionHistory extends Component {
         const { sales } = this.state;
         return (
             <>
-                <div className="salesTable">
-                    <Typography>Transaction History</Typography>
+                <div className="dashInventory">
+                    <Typography className="inventoryTitle">Transaction History</Typography>
                     <Table >
                         <TableHead>
                             <TableRow>
@@ -62,6 +62,15 @@ class TransactionHistory extends Component {
                         </TableBody>
                     </Table>
                 </div>
+                <style jsx>
+                {`
+                    .inventoryTitle {
+                        display: flex;
+                        justify-content: center;
+                        font: 24px bold;
+                    }
+                `}
+            </style>
             </>
         )
     }
