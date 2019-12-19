@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import loadData from '../../utils/loadData';
 import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
-import {FormControl, Paper, TextField, Button, Typography, Select, MenuItem} from '@material-ui/core'
+import {FormControl, Paper, TextField, Button, Typography, Select, MenuItem, InputLabel} from '@material-ui/core'
 
 
 class EditMember extends Component {
@@ -92,12 +92,14 @@ class EditMember extends Component {
                           <TextField  label="Email" name="member_email" type="email" value={member_email} placeholder={m.member_email} onChange={this.handleChange} />
                         
                             <TextField label="Phone Number" name="phone"type="tel" value={phone} placeholder={m.phone} onChange={this.handleChange} />
-                        
-                        
-                          <Select label="Status" onChange={this.handleSelectChange}>
+                          <FormControl>
+                          <InputLabel>Status</InputLabel>
+                          <Select placeholder="Status" onChange={this.handleSelectChange}>
+                            
                             <MenuItem value={status} name={status} value="active">Active</MenuItem>
                             <MenuItem value={status} name={status} value="inactive">Inactive</MenuItem>
                           </Select>
+                          </FormControl>
                         
                     <Button variant='contained' color='primary' type="submit" onClick={this.handleSubmit}>Update Now</Button>
                     </ul>
