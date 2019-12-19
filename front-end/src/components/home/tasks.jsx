@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import { loadData } from "../../utils/loadData";
-import { Table, Button } from '@material-ui/core';
-import TableBody from '@material-ui/core/TableBody';
-import { TableCell } from '@material-ui/core';
-import { TableHead } from '@material-ui/core';
-import { TableRow } from '@material-ui/core';
-import {Typography} from '@material-ui/core';
+import Kuzushi from '../../images/Kuzushi.png'
+import { Paper } from '@material-ui/core';
+import Jits from '../../images/jits.png'
+
 
 
 class Tasks extends Component {
@@ -26,29 +24,64 @@ class Tasks extends Component {
         const { tasks } = this.state;
         return (
             <>
-                <div className="salesTable">
-                    <Typography>Tasks</Typography>
-                    <Table border="1|0">
-                        <TableHead>
-                            <TableRow>
-                                <TableCell>
-                                    Task
-                                </TableCell>
-                                <TableCell>
-                                    Employee
-                                </TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                        {tasks.map(task => (
-                    <TableRow key={task.id} value={task.id} name={task.id}>
-                    <TableCell>{task.task_info}</TableCell> 
-                    <TableCell>{task.employee_name}</TableCell>
-                    </TableRow>
-                    ))}
-                        </TableBody>
-                    </Table>
+            <div className="Home--Container">
+            <Paper className="Paper">
+                <h1 className="HomeTitle">Welcome to Kuzushi Solutions</h1>
+                </Paper>
+                <div className="homeImages">
+                <img src={Kuzushi}></img>
+                <img src={Jits}></img>
                 </div>
+                </div>
+                <style jsx>
+                    {`
+                        .Paper {
+                            display: flex;
+                            text-align: center;
+                            justify-content: center;
+                            background-color: grey;
+                            width: 100%;
+                        }
+                        .HomeTitle {
+                            display: flex;
+                            justify-content: center;
+                            font: 32px bold;
+                            font-weight: bold;
+                            text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+                            0px 8px 13px rgba(0,0,0,0.1),
+                            0px 18px 23px rgba(0,0,0,0.1);
+                            
+                        }
+                        .homeImages {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center
+                            justify-content: space-around;
+                            text-align: center;
+                            height: 10rem;
+                        
+                        }
+                        .homeImages img {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center
+                            justify-content: center;
+                            text-align: center;
+                            height: 20rem;
+                            width: 20rem;
+                            margin-left: 10rem;
+                            margin-right: 10rem;
+
+                        }
+                        .Home--Container {
+                            display: flex;
+                            flex-direction: column;
+                            text-align: center;
+                            align-items: center;
+                            width: 100%;
+                        }
+                    `}
+                </style>
             </>
         )
     }

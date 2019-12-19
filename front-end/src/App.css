@@ -15,10 +15,10 @@
   color: #61dafb;
 }
 
-img {
+/* img {
   height: 5rem;
   width: 5rem;
-}
+} */
 
 .Nav {
   display: fixed;
@@ -80,6 +80,8 @@ img {
 
 .Header img {
   margin-left: 3rem;
+  height: 5rem;
+  width: 5rem;
 }
 
 .Footer--Container {

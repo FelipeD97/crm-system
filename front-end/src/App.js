@@ -29,7 +29,7 @@ function App() {
       <Router>
         <div className="Header">
         <img src={Kuzushi}></img>
-        <h1>Kuzushi Club</h1>
+        <h1>Kuzushi Solutions</h1>
         <PrivateRoute path='/' component={Signout}/>
           
         </div>
@@ -49,7 +49,7 @@ function App() {
               <Route exact path='/signup' component={SignUp}/>
               <Route exact path='/' component={Login}/>
               <Route exact path='/signout' component={Tasks}/>
-              <Route exact path='/signout' component={AddTask}/>
+              {/* <Route exact path='/signout' component={AddTask}/> */}
 
 
             </div>
