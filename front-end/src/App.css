@@ -198,3 +198,8 @@ input {
 .MemberProfile button{
   width: 100%;
 }
+
+.MemberProfile img {
+  height: 8rem;
+  width: 8rem;
+}
