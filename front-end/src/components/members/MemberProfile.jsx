@@ -19,12 +19,7 @@ class MemberProfile extends Component {
         this.setState({
             members
         })
-        }
-
-        // onClick = e => {
-        //     e.preventDeafult();
-        //     <Route path='/test' />
-        // }
+    }
 
     render() { 
         const { members } = this.state;

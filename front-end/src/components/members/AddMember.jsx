@@ -24,10 +24,10 @@ class AddMember extends Component {
         });
         const reply = await response;
         if (reply.status === 200) {
-          alert("Member Added!");
+          return reply;
         }
         if (reply.status !== 200) {
-          alert("Member not added");
+          return reply;
         }
       };
     

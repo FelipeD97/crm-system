@@ -6,9 +6,6 @@ import {Button} from '@material-ui/core'
 import {ButtonGroup, Typography} from '@material-ui/core'
 
 
-
-
-
 const Members = () => {
     const [members, setMembers] = useState('active');
 

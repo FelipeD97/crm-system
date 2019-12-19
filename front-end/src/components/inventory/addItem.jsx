@@ -24,10 +24,10 @@ class AddItem extends Component {
         });
         const reply = await response;
         if (reply.status === 200) {
-          alert("item Added!");
+          return reply;
         }
         if (reply.status !== 200) {
-          alert("item not added");
+          return reply;
         }
       };
       

@@ -38,10 +38,10 @@ class EditMember extends Component {
             });
             const reply = await response;
             if (reply.status === 200) {
-              alert("Member Updated!");
+              return reply
             }
             if (reply.status !== 200) {
-              alert("Failed Update");
+              return reply;
             }
           };
         
